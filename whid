@@ -1,3 +1,4 @@
+print("loaded")
 return {
 "F507D043-313D-47AA-B47B-44DFECC6FE3C"
 }
