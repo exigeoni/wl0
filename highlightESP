@@ -15,7 +15,7 @@ local NamePositioning = false
 Instance.new("ScreenGui")
 
 local Folder = Instance.new("Folder", game:GetService("CoreGui"))
-Folder.Name = "hi-lightz"
+Folder.Name = "hi_litez"
 
 AddOutline = function(Character)
    local Highlight = Instance.new("Highlight", Folder)
