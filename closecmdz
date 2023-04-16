@@ -1,0 +1,9 @@
+return {
+"close",
+"exit",
+"quit",
+"end",
+"terminate",
+"X"
+"x"
+}
