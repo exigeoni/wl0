@@ -1,0 +1,162 @@
+---------FONTS
+local F_fs = Enum.Font.SpecialElite
+local F_pm = Enum.Font.PermanentMarker
+local F_sp = Enum.Font.Michroma
+local F_ss = Enum.Font.SourceSans
+local F_ssB = Enum.Font.SourceSansBold
+local F_sssb = Enum.Font.SourceSansSemibold
+local F_ssl = Enum.Font.SourceSansLight
+local F_ssi = Enum.Font.SourceSansItalic
+local F_tw = Enum.Font.TitilliumWeb
+---------
+local sg = Instance.new("ScreenGui")
+sg.Name = "ivp-SG"
+sg.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+sg.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+sg.ResetOnSpawn = false
+local mainframe = Instance.new("Frame")
+mainframe.Name = "ItemViewPanel"
+mainframe.Parent = sg
+mainframe.BackgroundColor3 = Color3.fromRGB(25,25,25)
+mainframe.BorderSizePixel = 0
+mainframe.BackgroundTransparency = 0
+mainframe.Position = UDim2.new(0.33,0,0.631,0)
+mainframe.Size = UDim2.new(0,175,0,220)
+mainframe.ZIndex = 0
+mainframe.Active = true
+mainframe.Draggable = true
+
+local mainframe2 = Instance.new("Frame")
+mainframe2.Name = "ItemViewPanel2"
+mainframe2.Parent = mainframe
+mainframe2.BackgroundColor3 = Color3.fromRGB(25,25,25)
+mainframe2.BorderSizePixel = 0
+mainframe2.BackgroundTransparency = 1
+mainframe2.Position = UDim2.new(0.33,0,0.727,0)
+mainframe2.Size = UDim2.new(0,175,0,142)
+mainframe2.ZIndex = 0
+mainframe2.Active = true
+mainframe2.Draggable = true
+
+local gridyy = Instance.new("UIGridLayout")
+gridyy.Parent = mainframe
+gridyy.SortOrder = Enum.SortOrder.LayoutOrder
+gridyy.CellPadding = UDim2.new(0,5,0,5)
+gridyy.CellSize = UDim2.new(0,150,0,35)
+gridyy.HorizontalAlignment = Enum.HorizontalAlignment.Center
+gridyy.VerticalAlignment = Enum.VerticalAlignment.Top
+
+local gridyy2 = Instance.new("UIGridLayout")
+gridyy2.Parent = mainframe2
+gridyy2.SortOrder = Enum.SortOrder.LayoutOrder
+gridyy2.CellPadding = UDim2.new(0,5,0,5)
+gridyy2.CellSize = UDim2.new(0,150,0,35)
+gridyy2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+gridyy2.VerticalAlignment = Enum.VerticalAlignment.Top
+
+local PSI = Instance.new("TextBox")
+PSI.Name = "PlayerSearchInput"
+PSI.Parent = mainframe
+PSI.BackgroundColor3 = Color3.fromRGB(9,9,9)
+PSI.BorderSizePixel = 0
+PSI.BackgroundTransparency = 0
+PSI.Position = UDim2.new(0,0,0.028,0)
+PSI.Size = UDim2.new(0,249,0,33)
+PSI.Font = F_ssi
+PSI.PlaceholderColor3 = Color3.fromRGB(67, 224, 96)
+PSI.PlaceholderText = "Player Name Here"
+PSI.TextColor3 = Color3.fromRGB(67, 224, 96)
+PSI.TextScaled = false
+PSI.TextSize = 14
+PSI.Text = ""
+PSI.ZIndex = 1
+
+
+local PSI2 = Instance.new("TextButton")
+PSI2.Name = "PlayerSearchEnter"
+PSI2.Parent = mainframe
+PSI2.BackgroundColor3 = Color3.fromRGB(9,9,9)
+PSI2.BorderSizePixel = 0
+PSI2.BackgroundTransparency = 0
+PSI2.Position = UDim2.new(0,0,0.028,0)
+PSI2.Size = UDim2.new(0,249,0,33)
+PSI2.Font = F_ssB
+PSI2.TextColor3 = Color3.fromRGB(67, 224, 96)
+PSI2.TextScaled = true
+PSI2.Text = "Search"
+PSI2.ZIndex = 1
+--[[
+local ph = Instance.new("TextLabel")
+ph.Name = "playerhealth"
+ph.Parent = mainframe2
+ph.BackgroundColor3 = Color3.fromRGB(9,9,9)
+ph.BorderSizePixel = 0
+ph.BackgroundTransparency = 0
+ph.Position = UDim2.new(0,0,0.028,0)
+ph.Size = UDim2.new(0,249,0,33)
+ph.Font = F_ss
+ph.TextColor3 = Color3.fromRGB(255,255,255)
+ph.TextScaled = false
+ph.TextSize = 14
+ph.Text = "Player Health: "
+ph.ZIndex = 1
+
+local pi = Instance.new("TextLabel")
+pi.Name = "playeritems"
+pi.Parent = mainframe2
+pi.BackgroundColor3 = Color3.fromRGB(9,9,9)
+pi.BorderSizePixel = 0
+pi.BackgroundTransparency = 0
+pi.Position = UDim2.new(0,0,0.028,0)
+pi.Size = UDim2.new(0,249,0,33)
+pi.Font = F_ss
+pi.TextColor3 = Color3.fromRGB(255,255,255)
+pi.TextScaled = false
+pi.TextSize = 14
+pi.Text = "Player Items: "
+pi.ZIndex = 1
+]]
+local re = Instance.new("TextLabel")
+re.Name = "reminder"
+re.Parent = mainframe2
+re.BackgroundColor3 = Color3.fromRGB(9,9,9)
+re.BorderSizePixel = 0
+re.BackgroundTransparency = 0
+re.Position = UDim2.new(0,0,0.028,0)
+re.Size = UDim2.new(0,249,0,33)
+re.Font = F_ss
+re.TextColor3 = Color3.fromRGB(255,255,255)
+re.TextScaled = true
+re.Text = "Info Is Printed To Roblox Console"
+re.ZIndex = 1
+
+PSI2.MouseButton1Up:Connect(function()
+	local selectedplayer = PSI.Text
+	local pathh = game.Players:WaitForChild(selectedplayer)
+	local charpath = game.Workspace:WaitForChild(selectedplayer)
+	local charhum = charpath:WaitForChild("Humanoid")
+	local playerhealth = charhum.Health
+	local plyrzbackpack = pathh:WaitForChild("Backpack")
+
+	local playeritemz = plyrzbackpack:GetChildren()
+	local plyritemTable = {playeritemz}
+
+	local list2print = Instance.new("StringValue")
+	for i, v in pairs(plyritemTable) do
+		list2print = v
+	end
+
+	
+	
+	print(selectedplayer)
+	print("-------------")
+	print(playerhealth)
+	print(list2print)
+	print("-------------")
+
+	--ph.Text = playerhealth
+	--pi.Text = playeritemz2
+end)
+
+
+--print(	.Backpack:GetChildren())	
