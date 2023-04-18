@@ -49,7 +49,7 @@ AddNameTag = function(Character)
    TextLabel.Size = UDim2.new(1, 0, 1, 0)
    TextLabel.TextSize = 16
    Frame.BackgroundTransparency = 1
-   TextLabel.BackgroundTransparency = 1
+   TextLabel.BackgroundTransparency = 1
    
    TextLabel.Text = Character.Name
    TextLabel.Font = TextFont
