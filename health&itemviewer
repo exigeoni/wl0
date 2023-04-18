@@ -321,6 +321,20 @@ mainframe.ZIndex = 0
 mainframe.Active = true
 mainframe.Draggable = true
 
+local uicorn1 = Instance.new("UICorner")
+uicorn1.Name = "UICorner3"
+uicorn1.Parent = mainframe
+uicorn1.CornerRadius = UDim.new(0,16)
+
+local uistroke = Instance.new("UIStroke")
+uistroke.Name = "UIStroke1"
+uistroke.Parent = mainframe
+uistroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+uistroke.Color = Color3.fromRGB(67,224,96)
+uistroke.LineJoinMode = Enum.LineJoinMode.Round
+uistroke.Thickness = 2
+uistroke.Transparency = 0
+
 local mainframe2 = Instance.new("Frame")
 mainframe2.Name = "ItemViewPanel2"
 mainframe2.Parent = mainframe
