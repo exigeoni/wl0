@@ -92,10 +92,3 @@ game:GetService("Players").PlayerAdded:Connect(function(Player)
 end)
 end
 espp()
-
-while true do
-    wait(20)
-    game.CoreGui.hi_litez:Destroy()
-    wait(1)
-    espp()
-end
