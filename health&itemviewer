@@ -379,6 +379,7 @@ PSI.TextScaled = false
 PSI.TextSize = 14
 PSI.Text = ""
 PSI.ZIndex = 1
+PSI.ClearTextOnFocus = false
 
 
 local PSI2 = Instance.new("TextButton")
