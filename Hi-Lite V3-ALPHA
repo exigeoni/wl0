@@ -13,8 +13,10 @@ function espp()
 
 --[[
    Originally By Polarrr#0001
-   Modified By Pwn#2203
-   V2
+   
+   HEAVILY Modified By Pwn#2203
+   Item And Health Viewer Made By Pwn#2203 with the help of Repr Module
+   V3 ALPHA HIGHLY EXPERIMENTAL
 --]]
 	Instance.new("ScreenGui")
 
@@ -80,9 +82,9 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 ]]
 	print("Item And Health Viewer Made By Pwn#2203")
 	local defaultSettings = {
-		pretty = true;
+		pretty = false;
 		robloxFullName = false;
-		robloxProperFullName = true;
+		robloxProperFullName = false;
 		robloxClassName = false;
 		tabs = false;
 		semicolons = false;
@@ -395,7 +397,7 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 
 		TextLabel.Text = repr(plyritemTable)
 		TextLabel.Font = TextFont
-		TextLabel.TextColor3 = Color3.fromRGB(35, 255, 1)
+		TextLabel.TextColor3 = Color3.fromRGB(2, 2, 2)
 		TextLabel.TextScaled = NamePositioning
 
 	end
