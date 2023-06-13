@@ -1,5 +1,5 @@
 --[[
-ae7c79d0-9c56-4a8c-a04b-4da617027bf1 - free tester key
+ae7c79d0-9c56-4a8c-a04b-4da617027bf1 - free key
    ____ _  ______   __     ______  
   / ___| |/ / ___|  \ \   / /___ \ 
  | |   | ' /\___ \   \ \ / /  __) |
@@ -966,7 +966,7 @@ print("AZRAEL X - vA.5")
 -----------------------------------------------------------------------
 --build gui below
 --create buttons under the bodyframe that you want it to be in, and the bodyframes and buttons need to have different names or it wont work
-					local temp = slib:Createframe("ESP Manager V5 - FREE TESTER VERSION")
+					local temp = slib:Createframe("ESP Manager V5")
 
 
 
@@ -981,8 +981,9 @@ print("AZRAEL X - vA.5")
 
 					slib2("Refresh Hi-Lite V2", function()
 						game.CoreGui.hi_litez:Destroy()
-						wait(2)
-						loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V2"))() 
+						wait(.75)
+						loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V2"))()
+						print("Refreshed")
 					end)
 
 					slib2("Loop Hi-Lite (Deprecated)", function()
@@ -1003,8 +1004,18 @@ print("AZRAEL X - vA.5")
 					end)
 					slib2("Refresh Hi-Lite V3", function()
 						game.CoreGui.hi_litez:Destroy()
-						wait(2)
+						wait(.75)
 						loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-ALPHA'))()
+						print("Refreshed")
+					end)
+					slib2("Hi-Lite V3- TWW EDITION", function()
+						loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-A-TWW_EDITION'))()
+					end)
+					slib2("Refresh HL-V3 TWW Edition", function()
+						game.CoreGui.hi_litez:Destroy()
+						wait(.75)
+						loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-A-TWW_EDITION'))()
+						print("Refreshed")
 					end)
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local function closingin2()
