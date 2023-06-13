@@ -15,8 +15,10 @@ function espp()
    Originally By Polarrr#0001
    
    HEAVILY Modified By Pwn#2203
-   Item And Health Viewer Made By Pwn#2203 with the help of Repr Module
-   V3 ALPHA HIGHLY EXPERIMENTAL
+   Item And Health Viewer Made By Pwn#2203 With The Help of Repr Module
+   V3 ALPHA EXPERIMENTAL
+   Hi-Lite V3 Adds Player Inventory To The ESP And The Ability to see what Team The Other Player Is On
+   V3 Is Experimental For Reasons Like Highlights Disappearing Sometimes When The Parent Character Dies, Or Weapons Not Being Detected In Some Games Due To Custom Inventories.
 --]]
 	Instance.new("ScreenGui")
 
