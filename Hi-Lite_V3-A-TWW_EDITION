@@ -421,6 +421,7 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 
 		local selectedplayer = Character.Name
 		--local selectedplayer2 = Character.Name
+		local pathh2 = game.Players:WaitForChild(selectedplayer)
 		local pathh = game.Workspace.WORKSPACE_Entities.Players:WaitForChild(selectedplayer)
 		local charpath = Character
 		local charhum = charpath:WaitForChild("Humanoid")
@@ -446,7 +447,7 @@ TextLabel.Text = table.concat(weaponNames, ", ")
 		
 		--TextLabel.Text = repr(plyritemTable)
 		TextLabel.Font = TextFont
-		TextLabel.TextColor3 = NameColor
+		TextLabel.TextColor3 = pathh2.TeamColor.Color
 		TextLabel.TextScaled = NamePositioning
 		
 		
