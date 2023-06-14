@@ -966,7 +966,7 @@ print("AZRAEL X - vA.5")
 -----------------------------------------------------------------------
 --build gui below
 --create buttons under the bodyframe that you want it to be in, and the bodyframes and buttons need to have different names or it wont work
-					local temp = slib:Createframe("ESP Manager V5")
+					local temp = slib:Createframe("ESP Manager V5 - TESTERS EDITION")
 
 
 
