@@ -490,6 +490,7 @@ function slib:Createframe(text)
 	consolebody.ScrollBarImageColor3 = Color3.fromRGB(67,224,96)
 	consolebody.ScrollBarThickness = 6
 	consolebody.ClipsDescendants = true
+	consolebody.Visible = false
 	
 	configbody.Name = "configbody"
 	configbody.Parent = mainframe
@@ -504,6 +505,7 @@ function slib:Createframe(text)
 	configbody.ScrollBarImageColor3 = Color3.fromRGB(67,224,96)
 	configbody.ScrollBarThickness = 6
 	configbody.ClipsDescendants = true
+	configbody.Visible = false
 
 
 	local TIME_ZONE = 5
@@ -606,6 +608,7 @@ function slib:Createframe(text)
 	consolebodyback.ZIndex = -1
 	consolebodyback.Active = true
 	consolebodyback.Draggable = false
+	consolebodyback.Visible = false
 	
 	configback.Name = "configback"
 	configback.Parent = mainframe
@@ -617,6 +620,7 @@ function slib:Createframe(text)
 	configback.ZIndex = -1
 	configback.Active = true
 	configback.Draggable = false
+	configback.Visible = false
 	
 	gridy5.Parent = configbody
 	gridy5.SortOrder = Enum.SortOrder.LayoutOrder
@@ -966,7 +970,7 @@ print("AZRAEL X - vA.5")
 -----------------------------------------------------------------------
 --build gui below
 --create buttons under the bodyframe that you want it to be in, and the bodyframes and buttons need to have different names or it wont work
-					local temp = slib:Createframe("ESP Manager V5 - TESTERS EDITION")
+					local temp = slib:Createframe("ESP Manager V5")
 
 
 
