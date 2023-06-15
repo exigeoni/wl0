@@ -7,7 +7,7 @@ function espp()
 	local FillOpacity = 1
 	local FillColoring = Color3.fromRGB(118, 252, 109) 
 	local NameTags = true
-	local TextFont = Enum.Font.SourceSansLight
+	local TextFont = Enum.Font.SourceSansBold
 	local NameColor = Color3.fromRGB(118, 252, 109) 
 	local NamePositioning = false
 
@@ -60,6 +60,8 @@ function espp()
 		TextLabel.Font = TextFont
 		TextLabel.TextColor3 = NameColor
 		TextLabel.TextScaled = NamePositioning
+		TextLabel.TextStrokeTransparency = 0
+		TextLabel.TextStrokeColor3 = Color3.fromRGB(1,1,1)
 	end
 
 
@@ -401,6 +403,8 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 		TextLabel.Font = TextFont
 		TextLabel.TextColor3 = pathh.TeamColor.Color
 		TextLabel.TextScaled = NamePositioning
+		TextLabel.TextStrokeTransparency = 0
+		TextLabel.TextStrokeColor3 = Color3.fromRGB(1,1,1)
 
 	end
 
