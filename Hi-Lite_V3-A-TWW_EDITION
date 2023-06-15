@@ -86,7 +86,6 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 ]]
 	--print("Item And Health Viewer Made By Pwn#2203")
 	print("Hi-Lite V3 - THE WILD WEST EDITION")
-	print("The Wild West has unique inventory system so I had to make this")
 	local defaultSettings = {
 		pretty = false;
 		robloxFullName = false;
