@@ -84,7 +84,7 @@ local myTable = {
 print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
  
 ]]
-	print("Item And Health Viewer Made By Pwn#2203")
+	--print("Item And Health Viewer Made By Pwn#2203")
 	local defaultSettings = {
 		pretty = false;
 		robloxFullName = false;
@@ -408,7 +408,7 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 
 	end
 
-
+	--print("Item And Health Viewer Made By Pwn#2203")
 
 	for i, v in ipairs(game:GetService("Players"):GetPlayers()) do
 		if v ~= game:GetService("Players").LocalPlayer then
@@ -446,4 +446,22 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 		end)
 	end)
 end
+local gameid = game.PlaceId
+
+if(gameid == 11997674134) then
+	print("HLV3 - Wasteland Tycoon Detected, Switching To Wasteland Tycoon Edition")
+	local Folder2 = Instance.new("Folder", game:GetService("CoreGui"))
+	Folder2.Name = "hi_litez"
+	game.CoreGui.hi_litez:Destroy()
+	wait(1)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-WASTELANDTYCOON_EDITION"))()
+elseif(gameid == 2317712696) then
+	print("HLV3 - The Wild West Detected, Switching To The Wild West Edition")
+	local Folder3 = Instance.new("Folder", game:GetService("CoreGui"))
+	Folder3.Name = "hi_litez"
+	game.CoreGui.hi_litez:Destroy()
+	wait(1)
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-A-TWW_EDITION'))()
+else
 espp()
+end
