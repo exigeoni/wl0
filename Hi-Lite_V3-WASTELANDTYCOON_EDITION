@@ -20,7 +20,6 @@ function espp()
    Hi-Lite V3 Adds Player Inventory To The ESP And The Ability to see what Team The Other Player Is On
    V3 Is Experimental For Reasons Like Highlights Disappearing Sometimes When The Parent Character Dies, Or Weapons Not Being Detected In Some Games Due To Custom Inventories.
 --]]
-  WASTELAND TYCOON EDITION
 	Instance.new("ScreenGui")
 
 	local Folder = Instance.new("Folder", game:GetService("CoreGui"))
