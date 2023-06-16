@@ -463,5 +463,6 @@ elseif(gameid == 2317712696) then
 	wait(1)
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-A-TWW_EDITION'))()
 else
+print("HLV3 - Game ID Not Officially Recognized, ESP May Not Work If Game Has Custom Inventory Or Character Locations.")
 espp()
 end
