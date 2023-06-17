@@ -461,7 +461,7 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 				if NameTags == true then
 					AddNameTag(Character)
 					AddNameTag2(Character)
-                    AddNameTag3(Character)
+                    			AddNameTag3(Character)
 				end
 			end)
 
@@ -472,7 +472,7 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 				if NameTags == true then
 					AddNameTag(v.Character)
 					AddNameTag2(v.Character)
-                    AddNameTag3(v.Character)
+                   			AddNameTag3(v.Character)
 				end
 			end
 		end
