@@ -1,0 +1,40 @@
+--project overseer
+
+function OSG()
+	local overmain = {}
+
+
+	function overmain:Create(text)
+
+
+
+	
+		local Players = game:GetService("Players")
+		local player = Players.LocalPlayer
+		local wsg = Instance.new("ScreenGui")
+		local viewpor = Instance.new("ViewportFrame")
+		local playernam = player.Name
+		wsg.Parent = player.PlayerGui
+		local plyrhed1 = game.Workspace:WaitForChild(playernam)
+		local plyrhed2 = plyrhed1:WaitForChild("Head")
+		
+		local viewporCamera = Instance.new("Camera")
+		viewpor.CurrentCamera = viewporCamera
+		viewporCamera.Parent = viewpor
+		viewpor.Size = UDim2.new(0,244,0,244)
+		viewpor.Position = UDim2.new(0.798, 0, 0.056, 0)
+		viewpor.BackgroundColor3 = Color3.new(0, 0, 0)
+		viewpor.BorderColor3 = Color3.new(0, 0, 0)
+		viewpor.BorderSizePixel = 0
+		viewpor.BackgroundTransparency = 0
+		viewpor.Parent = wsg
+		
+		viewporCamera.CFrame = CFrame.new(Vector3.new(0, 2, 12), plyrhed2.Position)
+		
+		
+	end
+	
+	local initiate = overmain:Create("OSG")
+	
+end
+OSG()
