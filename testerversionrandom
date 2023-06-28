@@ -1,5 +1,5 @@
 --[[
-ae7c79d0-9c56-4a8c-a04b-4da617027bf1 - free key
+
    ____ _  ______   __     ______  
   / ___| |/ / ___|  \ \   / /___ \ 
  | |   | ' /\___ \   \ \ / /  __) |
@@ -1011,6 +1011,12 @@ print("AZRAEL X - vA.5")
 						wait(.75)
 						loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-ALPHA'))()
 						print("Refreshed")
+					end)
+					slib2("Boxes", function()
+						loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-boxes'))()
+					end)
+					slib2("Destroy Boxes", function()
+						game.CoreGui.hi_litez_boxes:Destroy()
 					end)
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local function closingin2()
