@@ -413,7 +413,7 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 		local Frame = Instance.new("Frame", BGui)
 		local TextLabel = Instance.new("TextLabel", Frame)
 
-		BGui.Adornee = Character:WaitForChild("Head")
+		BGui.Adornee = Character
 		BGui.StudsOffset = Vector3.new(0, 5, 0)
 		BGui.AlwaysOnTop = true
 		BGui.ResetOnSpawn = false
