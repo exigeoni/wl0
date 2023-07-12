@@ -38,9 +38,9 @@ local Highlight = Instance.new("Highlight", Folder)
 		Highlight.Adornee = Character
 
 if _G.visiblitystatus == "true" then
-    Highlight.Transparency = 1
+    Highlight.OutlineTransparency = 0
 else
-    Highlight.Transparency = 0
+    Highlight.OutlineTransparency = 1
 end
 
 	end
@@ -57,9 +57,9 @@ end
     Line.OutlineColor = Color3.fromRGB(1, 1, 1)
     Line.Thickness = 2
     if _G.visiblitystatus == "true" then
-    Line.Transparency = 0
-else
     Line.Transparency = 1
+else
+    Line.Transparency = 0
 end
     Line.ZIndex = 647
     Line.Font = 3
@@ -462,9 +462,9 @@ local function pse2(play, char)
     Line.OutlineColor = Color3.fromRGB(1, 1, 1)
     Line.Thickness = 2
     if _G.visiblitystatus == "true" then
-    Line.Transparency = 0
-else
     Line.Transparency = 1
+else
+    Line.Transparency = 0
 end
     Line.ZIndex = 647
     Line.Font = 3
