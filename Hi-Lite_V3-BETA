@@ -15,6 +15,10 @@
 	Folder.Name = "hi_litez"
 
 
+_G.visiblitystatus = readfile("espvisibility.txt")
+
+
+
 
 local players = game:GetService("Players")
 local cc = workspace.CurrentCamera
@@ -32,6 +36,13 @@ local Highlight = Instance.new("Highlight", Folder)
 		Highlight.OutlineColor = Color3.fromRGB(67,224,97)
         Highlight.FillTransparency = 1
 		Highlight.Adornee = Character
+
+if _G.visiblitystatus == "true" then
+    Highlight.Transparency = 1
+else
+    Highlight.Transparency = 0
+end
+
 	end
 
     AddOutline(char)
@@ -45,7 +56,11 @@ local Highlight = Instance.new("Highlight", Folder)
     Line.Color = Color3.fromRGB(67, 224, 97)
     Line.OutlineColor = Color3.fromRGB(1, 1, 1)
     Line.Thickness = 2
+    if _G.visiblitystatus == "true" then
+    Line.Transparency = 0
+else
     Line.Transparency = 1
+end
     Line.ZIndex = 647
     Line.Font = 3
     Line.Center = true
@@ -446,7 +461,11 @@ local function pse2(play, char)
     Line.Color = Color3.fromRGB(67, 224, 97)
     Line.OutlineColor = Color3.fromRGB(1, 1, 1)
     Line.Thickness = 2
+    if _G.visiblitystatus == "true" then
+    Line.Transparency = 0
+else
     Line.Transparency = 1
+end
     Line.ZIndex = 647
     Line.Font = 3
     Line.Center = true
@@ -554,7 +573,12 @@ local function pse3(play, char)
     Line.Color = Color3.fromRGB(67, 224, 97)
     Line.OutlineColor = Color3.fromRGB(1, 1, 1)
     Line.Thickness = 2
+
+   if _G.visiblitystatus == "true" then
+    Line.Transparency = 0
+else
     Line.Transparency = 1
+end
     Line.ZIndex = 647
     Line.Font = 3
     Line.Center = true
