@@ -1123,7 +1123,7 @@ addToggleButton("Toggle HLV3 Visiblity",
 local fileexists = isfile("espvisibility.txt")
 if fileexists then
     --print("config file exists")
-    appendfile("espvisibility.txt", "true")
+    writefile("espvisibility.txt", "true")
 else
     print("config file doesnt exist, creating file")
     writefile("espvisibility.txt", "true")
@@ -1136,7 +1136,7 @@ end
 local fileexists = isfile("espvisibility.txt")
 if fileexists then
     --print("config file exists")
-    appendfile("espvisibility.txt", "false")
+    writefile("espvisibility.txt", "false")
 else
     print("config file doesnt exist, creating file")
     writefile("espvisibility.txt", "false")
