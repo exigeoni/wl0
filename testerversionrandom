@@ -1,174 +1,4 @@
 --[[
-
-   ____ _  ______   __     ______  
-  / ___| |/ / ___|  \ \   / /___ \ 
- | |   | ' /\___ \   \ \ / /  __) |
- | |___| . \ ___) |   \ V /  / __/ 
-  \____|_|\_\____/     \_/  |_____|
-                  
-CITADEL-KEY-SYSTEM VERSION 2
-
-BY PWN#2203
-]]
-function cks()
-	local slib0 = {}
-
-
-	function slib0:Createframe(text)
-		local cks_sg = Instance.new("ScreenGui")
-		local cksbackground = Instance.new("Frame")
-		local ckscheck = Instance.new("TextButton")
-		local cksinput = Instance.new("TextBox")
-		local ckscredit = Instance.new("TextLabel")
-		local cksoutput = Instance.new("TextLabel")
-		local ckstitle = Instance.new("TextLabel")
-		local closetimer = Instance.new("TextLabel")
-		local cksver = Instance.new("TextLabel")
-
-		local trfa = Instance.new("BoolValue")
-		local uicor1 = Instance.new("UICorner")
-		local uicor2 = Instance.new("UICorner")
-		local uicor3 = Instance.new("UICorner")
-
-		local F_ss = Enum.Font.SourceSans
-		local F_ssl = Enum.Font.SourceSansLight
-		local F_ssb = Enum.Font.SourceSansBold
-
-		cks_sg.Name = "CKS_SG"
-		cks_sg.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-		cks_sg.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-		cks_sg.ResetOnSpawn = false
-
-		trfa.Name = "trfa"
-		trfa.Parent = cks_sg
-		trfa.Value = false
-
-		cksbackground.Name = "cksbackground"
-		cksbackground.Parent = cks_sg
-		cksbackground.BackgroundColor3 = Color3.fromRGB(6,6,6)
-		cksbackground.BorderSizePixel = 100
-		cksbackground.BorderColor3 = Color3.fromRGB(6,6,6)
-		cksbackground.BackgroundTransparency = 0
-		cksbackground.Position = UDim2.new(-0.028,0,-0.735,0)
-		cksbackground.Size = UDim2.new(0,2000,0,2000)
-		cksbackground.ZIndex = 999999997
-		cksbackground.Active = false
-		cksbackground.Draggable = false
-
-		ckscredit.Name = "ckscredit"
-		ckscredit.Parent = cks_sg
-		ckscredit.BackgroundColor3 = Color3.fromRGB(17,17,17)
-		ckscredit.BorderSizePixel = 0
-		ckscredit.BackgroundTransparency = 1
-		ckscredit.Position = UDim2.new(0.444,0,0.884,0)
-		ckscredit.Size = UDim2.new(0,212,0,36)
-		ckscredit.Font = F_ssl
-		ckscredit.TextColor3 = Color3.fromRGB(160, 245, 255)
-		ckscredit.TextScaled = false
-		ckscredit.TextSize = 14
-		ckscredit.Text = "BY PWN#2203"
-		ckscredit.ZIndex = 999999998
-		ckscredit.LineHeight = 1
-
-		cksver.Name = "cksver"
-		cksver.Parent = cks_sg
-		cksver.BackgroundColor3 = Color3.fromRGB(17,17,17)
-		cksver.BorderSizePixel = 0
-		cksver.BackgroundTransparency = 1
-		cksver.Position = UDim2.new(0.444,0,0.84,0)
-		cksver.Size = UDim2.new(0,212,0,36)
-		cksver.Font = F_ssl
-		cksver.TextColor3 = Color3.fromRGB(160, 245, 255)
-		cksver.TextScaled = false
-		cksver.TextSize = 14
-		cksver.Text = "V2"
-		cksver.ZIndex = 999999998
-		cksver.LineHeight = 1
-
-		closetimer.Name = "closetimer"
-		closetimer.Parent = cks_sg
-		closetimer.BackgroundColor3 = Color3.fromRGB(17,17,17)
-		closetimer.BorderSizePixel = 0
-		closetimer.BackgroundTransparency = 1
-		closetimer.Position = UDim2.new(0.444,0,0.05,0)
-		closetimer.Size = UDim2.new(0,212,0,36)
-		closetimer.Font = F_ssb
-		closetimer.TextColor3 = Color3.fromRGB(255, 136, 0)
-		closetimer.TextScaled = false
-		closetimer.TextSize = 14
-		closetimer.Text = "60"
-		closetimer.ZIndex = 999999998
-		closetimer.LineHeight = 1
-
-
-		local o_CKSOUTPUTTXT = "OUTPUT:"
-
-		local CKSOUTPUTTXT_W = "WAITING..."
-		local CKSOUTPUTTXT_I = "INCORRECT KEY"
-		local CKSOUTPUTTXT_RH = "WHITELISTED HWID"
-		local CKSOUTPUTTXT_UH = "UNRECOGNIZED HWID"
-		local CKSOUTPUTTXT_O = "OUTDATED KEY" --nonfunctional
-		local CKSOUTPUTTXT_C = "CORRECT KEY ENTERED, LOADING SCRIPT IN TWO SECONDS"
-		local CKSOUTPUTTXT_X = "CLOSING NOW"
-
-
-		cksoutput.Name = "cksoutput"
-		cksoutput.Parent = cks_sg
-		cksoutput.BackgroundColor3 = Color3.fromRGB(17,17,17)
-		cksoutput.BorderSizePixel = 0
-		cksoutput.BackgroundTransparency = 0
-		cksoutput.Position = UDim2.new(0.419,0,0.177,0)
-		cksoutput.Size = UDim2.new(0,308,0,150)
-		cksoutput.Font = F_ssl
-		cksoutput.TextColor3 = Color3.fromRGB(160, 245, 255)
-		cksoutput.TextScaled = false
-		cksoutput.TextSize = 13
-		cksoutput.Text = (o_CKSOUTPUTTXT..CKSOUTPUTTXT_W)
-		cksoutput.ZIndex = 999999998
-		cksoutput.LineHeight = 1
-		cksoutput.TextXAlignment = Enum.TextXAlignment.Left
-		cksoutput.TextYAlignment = Enum.TextYAlignment.Top
-
-		cksinput.Name = "cksinput"
-		cksinput.Parent = cks_sg
-		cksinput.BackgroundColor3 = Color3.fromRGB(17,17,17)
-		cksinput.BorderSizePixel = 0
-		cksinput.BackgroundTransparency = 0
-		cksinput.Position = UDim2.new(0.419,0,0.388,0)
-		cksinput.Size = UDim2.new(0,308,0,55)
-		cksinput.Font = F_ssl
-		cksinput.TextColor3 = Color3.fromRGB(0, 174, 255)
-		cksinput.TextScaled = true
-		cksinput.Text = ("Enter Key")
-		cksinput.ZIndex = 999999998
-		cksinput.LineHeight = 1
-		cksinput.TextXAlignment = Enum.TextXAlignment.Left
-		cksinput.TextYAlignment = Enum.TextYAlignment.Top
-
-		ckstitle.Name = "ckstitle"
-		ckstitle.Parent = cks_sg
-		ckstitle.BackgroundColor3 = Color3.fromRGB(255,255,255)
-		ckstitle.BorderSizePixel = 0
-		ckstitle.BackgroundTransparency = 1
-		ckstitle.Position = UDim2.new(0.418,0,0.109,0)
-		ckstitle.Size = UDim2.new(0,308,0,55)
-		ckstitle.Font = F_ssl
-		ckstitle.TextColor3 = Color3.fromRGB(0, 174, 255)
-		ckstitle.TextScaled = true
-		ckstitle.Text = "CITADEL KEY SYSTEM"
-		ckstitle.ZIndex = 999999998
-		ckstitle.LineHeight = 1
-
-		local function ckscheck2()
-			local wkey = loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/randomuuids"))()
-			for i,v in pairs(wkey) do
-				i = cksinput.Text
-				if v == i then
-					cksoutput.Text = (o_CKSOUTPUTTXT..CKSOUTPUTTXT_C)
-					trfa.Value = true
-					wait(2)
-					game.Players.LocalPlayer.PlayerGui.CKS_SG:Destroy()
-					--[[
  █████╗ ███████╗██████╗  █████╗ ███████╗██╗         ██╗  ██╗
 ██╔══██╗╚══███╔╝██╔══██╗██╔══██╗██╔════╝██║         ╚██╗██╔╝
 ███████║  ███╔╝ ██████╔╝███████║█████╗  ██║          ╚███╔╝ 
@@ -183,13 +13,17 @@ function cks()
 ||__|||__|||_______|||__|||__|||__|||__|||__|||__|||__|||__||
 |/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 (EVERYTHING by Pwn#2203)
-vA.5
+vA.6
 ]]
 
-local slib = {}
+--a few globals
+_G.Version = "vA.6"
+_G.PrintHiddenStatusLog = true
+
+local AZX = {}
 
 
-function slib:Createframe(text)
+function AZX:CreateUI(text)
 	local sg = Instance.new("ScreenGui")
 	local uicorn1 = Instance.new("UICorner")
 	local notify = Instance.new("Frame")
@@ -199,7 +33,7 @@ function slib:Createframe(text)
 
 	local consolebody = Instance.new("ScrollingFrame")
 	local consolebodyback = Instance.new("Frame")
-	
+
 	local configbody = Instance.new("ScrollingFrame")
 	local configback = Instance.new("Frame")
 	local configclosebuton = Instance.new("TextButton")
@@ -227,7 +61,7 @@ function slib:Createframe(text)
 	S_EL.Parent = sg
 	S_EL.SoundId = "rbxassetid://9114233865"
 	S_EL.TimePosition = 0
-	S_EL.Volume = 4
+	S_EL.Volume = 3
 	local function S_ELP()
 		S_EL:Play()
 	end
@@ -256,10 +90,31 @@ function slib:Createframe(text)
 	local F_tw = Enum.Font.TitilliumWeb
 	---------
 	--------
+	
+	
+	local toggle = false
+
+
+function onKeyPress(actionName, userInputState, inputObject)
+    if userInputState == Enum.UserInputState.Begin then
+        if toggle == false then
+             toggle = true
+            sg.Enabled = true
+        else
+            toggle = false
+            sg.Enabled = false
+        end
+    end
+end
+
+game.ContextActionService:BindAction("keyPress", onKeyPress, false, Enum.KeyCode.Equals)
+print("Press = To Show/Hide GUI")
+	
 	local slib3 = {}
 
 	function slib3:CreateBody(bname)
 		local body = Instance.new("Frame")
+
 
 		body.Name = bname
 		body.Parent = backframe
@@ -305,6 +160,11 @@ function slib:Createframe(text)
 			versionlabel.Active = true
 			mainframe.BackgroundTransparency = 0
 			mainframe.Active = true
+			
+			
+			
+			
+
 		end
 
 		local function minimize_hide()
@@ -318,8 +178,13 @@ function slib:Createframe(text)
 			versionlabel.Active = false
 			mainframe.BackgroundTransparency = 1
 			mainframe.Active = false
-		end
+			configback.Visible = false
+			configbody.Visible = false
+			consolebody.Visible = false
+			consolebodyback.Visible = false
 
+		end
+		local toggled = false
 		minimizebutton.Name = "minimizebutton"
 		minimizebutton.Parent = utilitybar
 		minimizebutton.BackgroundTransparency = 1
@@ -332,39 +197,24 @@ function slib:Createframe(text)
 		minimizebutton.Size = UDim2.new(0,30,0,30)
 		minimizebutton.ZIndex = 1
 		minimizebutton.MouseButton1Up:Connect(function()
-			minimize_hide()
-
-		end)
+       	 if toggled == false then
+       	 		minimize_hide()
+        	    toggled = true
+       	 else
+       	 		minimize_show()
+        	    toggled = false
+       		end
+	end)
 		minimizebutton.MouseEnter:Connect(function()
 			S_ELP()
 		end)
-		minimizebutton.MouseLeave:Connect(function()
-			S_ELP()
-		end)
 
-		maximizebutton.Name = "maximizebutton"
-		maximizebutton.Parent = utilitybar
-		maximizebutton.BackgroundTransparency = 1
-		maximizebutton.BorderSizePixel = 0
-		maximizebutton.Font = F_tw
-		maximizebutton.TextColor3 = Color3.fromRGB(221, 255, 0)
-		maximizebutton.TextScaled = true
-		maximizebutton.Text = "+"
-		maximizebutton.Position = UDim2.new(0.82,0,0.099,0)
-		maximizebutton.Size = UDim2.new(0,30,0,30)
-		maximizebutton.ZIndex = 1
-		maximizebutton.MouseButton1Up:Connect(function()
-			minimize_show()
-		end)
-		maximizebutton.MouseEnter:Connect(function()
-			S_ELP()
-		end)
-		maximizebutton.MouseLeave:Connect(function()
-			S_ELP()
-		end)
+
+		
+
 
 		--local slib2 = {}
-		function slib2(text, bscript)
+		function addButton(text, bscript)
 
 			local bscript = bscript or function() end
 
@@ -399,9 +249,219 @@ function slib:Createframe(text)
 			nbuton.MouseEnter:Connect(function()
 				S_ELP()
 			end)
-			nbuton.MouseLeave:Connect(function()
+
+		end
+		
+		function addToggleButton(text, bscript, bscript2)
+			
+			
+			
+			local bscript = bscript or function() end
+			local bscript2 = bscript2 or function() end
+			
+			local toggleb = false
+
+			local nbuton = Instance.new("TextButton")
+			local tbUIStroke = Instance.new("UIStroke")
+			tbUIStroke.Parent = nbuton
+			tbUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+			tbUIStroke.Color = Color3.fromRGB(67,224,96)
+			tbUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+			tbUIStroke.Thickness = 1
+			tbUIStroke.Transparency = 0
+
+			local uicorn4 = Instance.new("UICorner")
+			uicorn4.Name = "UICorner4"
+			uicorn4.Parent = nbuton
+			uicorn4.CornerRadius = UDim.new(0,8)
+
+			nbuton.Parent = body
+			nbuton.BackgroundColor3 = Color3.fromRGB(9,9,9)
+			nbuton.BorderSizePixel = 1
+			nbuton.Position = UDim2.new(0.665,0 ,1,0)
+			nbuton.Size = UDim2.new(0,75,0,20)
+			nbuton.Font = F_ss
+			nbuton.TextColor3 = Color3.fromRGB(67, 224, 96)
+			nbuton.TextScaled = true
+			nbuton.Text = text
+			nbuton.Name = nbuton.Text
+    nbuton.MouseButton1Down:Connect(function()
+        if toggleb == false then
+            toggleb = true
+            bscript()
+            nbuton.TextColor3 = Color3.fromRGB(15, 252, 3)
+        else
+            toggleb = false
+            bscript2()
+            nbuton.TextColor3 = Color3.fromRGB(255, 64, 64)
+        end
+    end)
+			nbuton.MouseEnter:Connect(function()
 				S_ELP()
 			end)
+			
+			
+			
+			
+			
+
+
+			
+			
+			
+			
+			
+		end
+
+		
+		function addLongButton(text, bscript)
+
+			local bscript = bscript or function() end
+
+
+			local nbuton = Instance.new("TextButton")
+			local tbUIStroke = Instance.new("UIStroke")
+			tbUIStroke.Parent = nbuton
+			tbUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+			tbUIStroke.Color = Color3.fromRGB(67,224,96)
+			tbUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+			tbUIStroke.Thickness = 1
+			tbUIStroke.Transparency = 0
+
+
+			local uicorn4 = Instance.new("UICorner")
+			uicorn4.Name = "UICorner4"
+			uicorn4.Parent = nbuton
+			uicorn4.CornerRadius = UDim.new(0,8)
+
+			nbuton.Parent = body
+			nbuton.BackgroundColor3 = Color3.fromRGB(9,9,9)
+			nbuton.BorderSizePixel = 1
+			nbuton.Position = UDim2.new(0.665,0 ,1,0)
+			nbuton.Size = UDim2.new(0,75,0,20)
+			nbuton.Font = F_ss
+			nbuton.TextColor3 = Color3.fromRGB(67, 224, 96)
+			nbuton.TextScaled = true
+			nbuton.Text = text
+			nbuton.Name = nbuton.Text
+			nbuton.MouseButton1Down:Connect(function()
+				pcall(bscript)
+			end)
+			nbuton.MouseEnter:Connect(function()
+				S_ELP()
+			end)
+ 
+
+
+
+			local sizechangr = Instance.new("UISizeConstraint")
+			sizechangr.Parent = nbuton
+			sizechangr.Name = "uizier"
+			sizechangr.MinSize = Vector2.new(141,25)
+
+		end
+
+
+		function addSpacer()
+			local nbuton = Instance.new("TextButton")
+
+
+			local uicorn4 = Instance.new("UICorner")
+			uicorn4.Name = "UICorner4"
+			uicorn4.Parent = nbuton
+			uicorn4.CornerRadius = UDim.new(0,8)
+
+			nbuton.Parent = body
+			nbuton.Transparency = 1
+			nbuton.BackgroundColor3 = Color3.fromRGB(9,9,9)
+			nbuton.BorderSizePixel = 0
+			nbuton.Position = UDim2.new(0.665,0 ,1,0)
+			nbuton.Size = UDim2.new(0,75,0,20)
+			nbuton.Font = F_ss
+			nbuton.TextColor3 = Color3.fromRGB(67, 224, 96)
+			nbuton.TextScaled = true
+			nbuton.Text = " "
+			nbuton.Name = "spacer"
+
+		end
+
+		function addButtonAndInputSection(boxtext, buttontext, buttonscript01)
+			local uisizconst2 = Instance.new("UISizeConstraint")
+
+			local nbox = Instance.new("TextBox")
+			local tbUIStroke = Instance.new("UIStroke")
+			tbUIStroke.Parent = nbox
+			tbUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+			tbUIStroke.Color = Color3.fromRGB(67,224,96)
+			tbUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+			tbUIStroke.Thickness = 1
+			tbUIStroke.Transparency = 0
+
+			local uicorn4 = Instance.new("UICorner")
+			uicorn4.Name = "UICorner4"
+			uicorn4.Parent = nbox
+			uicorn4.CornerRadius = UDim.new(0,8)
+
+			nbox.Parent = body
+			nbox.BackgroundColor3 = Color3.fromRGB(9,9,9)
+			nbox.BorderSizePixel = 1
+			nbox.Position = UDim2.new(0.665,0 ,1,0)
+			nbox.Size = UDim2.new(0,75,0,20)
+			nbox.Font = F_ss
+			nbox.TextColor3 = Color3.fromRGB(67, 224, 96)
+			nbox.TextScaled = true
+			nbox.Text = boxtext
+			nbox.Name = "inpnbox"
+
+			local uisizconst = Instance.new("UISizeConstraint")
+			uisizconst.Parent = nbox
+			uisizconst.Name = "uisizconst"
+			uisizconst.MinSize = Vector2.new(141,25)
+
+
+
+
+			local function adddButton(buttontext0, buttonscript010)
+
+				local buttonscript01 = buttonscript01 or function() end
+				local buttontext0 = buttontext
+
+				local nbuton = Instance.new("TextButton")
+				local tbUIStroke = Instance.new("UIStroke")
+				tbUIStroke.Parent = nbuton
+				tbUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+				tbUIStroke.Color = Color3.fromRGB(67,224,96)
+				tbUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+				tbUIStroke.Thickness = 1
+				tbUIStroke.Transparency = 0
+
+				local uicorn4 = Instance.new("UICorner")
+				uicorn4.Name = "UICorner4"
+				uicorn4.Parent = nbuton
+				uicorn4.CornerRadius = UDim.new(0,8)
+
+				nbuton.Parent = body
+				nbuton.BackgroundColor3 = Color3.fromRGB(9,9,9)
+				nbuton.BorderSizePixel = 1
+				nbuton.Position = UDim2.new(0.665,0 ,1,0)
+				nbuton.Size = UDim2.new(0,75,0,20)
+				nbuton.Font = F_ss
+				nbuton.TextColor3 = Color3.fromRGB(67, 224, 96)
+				nbuton.TextScaled = true
+				nbuton.Text = buttontext0
+				nbuton.Name = nbuton.Text
+				nbuton.MouseButton1Down:Connect(function()
+					_G.globalBOXINPUT = nbox.Text
+					pcall(buttonscript01)
+				end)
+				nbuton.MouseEnter:Connect(function()
+					S_ELP()
+				end)
+
+			end
+
+			adddButton(buttontext, buttonscript01)
+
 		end
 
 	end
@@ -429,7 +489,7 @@ function slib:Createframe(text)
 	noti2.BackgroundTransparency = 0.05
 	noti2.Position = UDim2.new(0,0,0.34,0)
 	noti2.Size = UDim2.new(0,200,0,33)
-	noti2.Text = "AZRAEL X UI | vA.5 | BY PWN#2203"
+	noti2.Text = "AZRAEL X UI | BY PWN#2203 | ".._G.Version
 	noti2.TextScaled = false
 	noti2.TextSize = 8
 	noti2.TextColor3 = Color3.fromRGB(67,224,96)
@@ -491,7 +551,7 @@ function slib:Createframe(text)
 	consolebody.ScrollBarThickness = 6
 	consolebody.ClipsDescendants = true
 	consolebody.Visible = false
-	
+
 	configbody.Name = "configbody"
 	configbody.Parent = mainframe
 	configbody.BackgroundColor3 = Color3.fromRGB(16,16,16)
@@ -518,12 +578,13 @@ function slib:Createframe(text)
 
 	--console output types
 	-----
-	local clb_fatal = ":	:FATAL"
-	local clb_warning = ":	:WARNING"
-	local clb_log = ": 	:LOG"
+	_G.clb_fatal = ":	:FATAL"
+	_G.clb_warning = ":	:WARNING"
+	_G.clb_log = ": 	:LOG"
+	_G.clb_external1 = ": 	:EXT"
 	-----
 
-	local function consoleoutputlbl(ctext, cstatus)
+	_G.ConsoleMsg = function(ctext, cstatus)
 		local consoleoutput = Instance.new("TextLabel")
 
 		consoleoutput.Name = "consoleoutput"
@@ -540,24 +601,26 @@ function slib:Createframe(text)
 		consoleoutput.TextXAlignment = Enum.TextXAlignment.Left
 		consoleoutput.ZIndex = 0
 
-		if cstatus == clb_fatal then
+		if cstatus == _G.clb_fatal then
 			consoleoutput.TextColor3 = Color3.fromRGB(255, 52, 52)
 		end
 
-		if cstatus == clb_warning then
+		if cstatus == _G.clb_warning then
 			consoleoutput.TextColor3 = Color3.fromRGB(255, 245, 110)
 		end
 
-		if cstatus == clb_log then
+		if cstatus == _G.clb_log then
 			consoleoutput.TextColor3 = Color3.fromRGB(255, 255, 255)
 		end
-
+		
+		if cstatus == _G.clb_external1 then
+			consoleoutput.TextColor3 = Color3.fromRGB(150, 213, 255)
+		end
+		
 	end
 
 
-	consoleoutputlbl("Loop Hi-Lite Is Now Deprecated And Useless", clb_warning)
-	consoleoutputlbl("IVP Panel Is Now Integrated Into Hi-Lite V3", clb_warning)
-	
+
 	gridy3.Parent = consolebody
 	gridy3.SortOrder = Enum.SortOrder.LayoutOrder
 	gridy3.CellPadding = UDim2.new(0,5,0,5)
@@ -575,26 +638,36 @@ function slib:Createframe(text)
 	local function consoleshow()
 		consolebody.Visible = true
 		consolebodyback.Visible = true
-		consoleoutputlbl("Console Unhidden", clb_log)
+		if _G.PrintHiddenStatusLog == true then
+			_G.ConsoleMsg("Console Unhidden", _G.clb_log)
+		end
 	end
 
 	local function consolehide()
-		consoleoutputlbl("Console Hidden", clb_log)
-		wait(.25)
+		if _G.PrintHiddenStatusLog == true then
+			_G.ConsoleMsg("Console Hidden", _G.clb_log)
+		end
+		
 		consolebody.Visible = false
 		consolebodyback.Visible = false
 	end
-	
+
 	local function configshow()
 		configbody.Visible = true
 		configback.Visible = true
-		consoleoutputlbl("Config Unhidden", clb_log)
+		if _G.PrintHiddenStatusLog == true then
+			_G.ConsoleMsg("Config Unhidden", _G.clb_log)
+		end
+		configbody.ScrollBarImageTransparency = 1
 	end
 
 	local function confighide()
-		consoleoutputlbl("Config Hidden", clb_log)
-		wait(.25)
+	if _G.PrintHiddenStatusLog == true then
+		_G.ConsoleMsg("Config Hidden", _G.clb_log)
+	end
+		wait(.05)
 		configbody.Visible = false
+		configbody.ScrollBarImageTransparency = 0
 		configback.Visible = false
 	end
 
@@ -609,7 +682,7 @@ function slib:Createframe(text)
 	consolebodyback.Active = true
 	consolebodyback.Draggable = false
 	consolebodyback.Visible = false
-	
+
 	configback.Name = "configback"
 	configback.Parent = mainframe
 	configback.BackgroundColor3 = Color3.fromRGB(16,16,16)
@@ -621,7 +694,7 @@ function slib:Createframe(text)
 	configback.Active = true
 	configback.Draggable = false
 	configback.Visible = false
-	
+
 	gridy5.Parent = configbody
 	gridy5.SortOrder = Enum.SortOrder.LayoutOrder
 	gridy5.CellPadding = UDim2.new(0,5,0,5)
@@ -631,11 +704,11 @@ function slib:Createframe(text)
 	gridy5.StartCorner = Enum.StartCorner.TopLeft
 	gridy5.HorizontalAlignment = Enum.HorizontalAlignment.Left
 	gridy5.VerticalAlignment = Enum.VerticalAlignment.Top
-	
+
 	local configoption = Instance.new("TextButton")
+
 	
-	local op1value = Instance.new("BoolValue")
-	op1value = false
+	local togglec = false
 	
 	configoption.Name = "configoption"
 	configoption.Parent = configbody
@@ -644,7 +717,7 @@ function slib:Createframe(text)
 	configoption.BackgroundTransparency = 1
 	configoption.Position = UDim2.new(0,0,0,0)
 	configoption.Size = UDim2.new(0,72,0,25)
-	configoption.Text = "Enable ?"
+	configoption.Text = "Print Visiblity Status"
 	configoption.TextScaled = true
 	configoption.TextColor3 = Color3.fromRGB(67,224,96)
 	configoption.TextYAlignment = Enum.TextYAlignment.Center
@@ -652,29 +725,26 @@ function slib:Createframe(text)
 	configoption.ZIndex = 0
 	configoption.MouseButton1Up:Connect(function()
 		op1value = true
-		consoleoutputlbl("Option 1 Enabled", clb_log)
-	end)
-	
-	local configoption2 = Instance.new("TextButton")
+        if togglec == false then
+            togglec = true
+			-------------------------------
+			
+			_G.PrintHiddenStatusLog = true
+			
+			-------------------------------
+            configoption.TextColor3 = Color3.fromRGB(15, 252, 3)
+        else
+            togglec = false
+			-------------------------------
+			
+			_G.PrintHiddenStatusLog = false
+			
+			-------------------------------
+            configoption.TextColor3 = Color3.fromRGB(255, 64, 64)
+        end
+    end)
+	--configoption.Visible = false
 
-	configoption2.Name = "configoption"
-	configoption2.Parent = configbody
-	configoption2.BackgroundColor3 = Color3.fromRGB(9,9,9)
-	configoption2.BorderSizePixel = 0
-	configoption2.BackgroundTransparency = 1
-	configoption2.Position = UDim2.new(0,0,0,0)
-	configoption2.Size = UDim2.new(0,72,0,25)
-	configoption2.Text = "Disable ?"
-	configoption2.TextScaled = true
-	configoption2.TextColor3 = Color3.fromRGB(67,224,96)
-	configoption2.TextYAlignment = Enum.TextYAlignment.Center
-	configoption2.TextXAlignment = Enum.TextXAlignment.Left
-	configoption2.ZIndex = 0
-	configoption2.MouseButton1Up:Connect(function()
-		op1value = false
-		consoleoutputlbl("Option 1 Disabled", clb_log)
-	end)
-	
 	local UserInputService = game:GetService("UserInputService")
 	local runService = (game:GetService("RunService"));
 
@@ -728,7 +798,7 @@ function slib:Createframe(text)
 	end)
 
 	runService.Heartbeat:Connect(Update)
-	
+
 	configclosebuton.Name = "consoleclosebutton"
 	configclosebuton.Parent = configback
 	configclosebuton.BackgroundTransparency = 1
@@ -746,14 +816,12 @@ function slib:Createframe(text)
 	consoleclosebutton.MouseEnter:Connect(function()
 		S_ELP()
 	end)
-	consoleclosebutton.MouseLeave:Connect(function()
-		S_ELP()
-	end)
-	
+
+
 	uicorn8.Name = "UICorner"
 	uicorn8.Parent = configback
 	uicorn8.CornerRadius = UDim.new(0,8)
-	
+
 	uicorn6.Name = "UICorner"
 	uicorn6.Parent = consolebodyback
 	uicorn6.CornerRadius = UDim.new(0,8)
@@ -779,9 +847,7 @@ function slib:Createframe(text)
 	consoleclosebutton.MouseEnter:Connect(function()
 		S_ELP()
 	end)
-	consoleclosebutton.MouseLeave:Connect(function()
-		S_ELP()
-	end)
+
 
 	utilitybar.Name = "utilitybar"
 	utilitybar.Parent = mainframe
@@ -809,7 +875,7 @@ function slib:Createframe(text)
 	ubUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
 	ubUIStroke.Color = Color3.fromRGB(67,224,96)
 	ubUIStroke.LineJoinMode = Enum.LineJoinMode.Round
-	ubUIStroke.Thickness = 1
+	ubUIStroke.Thickness = 1.75
 	ubUIStroke.Transparency = 0
 
 	bfuistroke.Name = "UIStroke"
@@ -836,6 +902,7 @@ function slib:Createframe(text)
 	backframe.ScrollBarImageColor3 = Color3.fromRGB(67,224,96)
 	backframe.ClipsDescendants = true
 	backframe.BorderColor3 = Color3.fromRGB(9,9,9)
+	backframe.CanvasSize = UDim2.new(0,0,10,0)
 
 	gridy4.Name = "gridy4"
 	gridy4.Parent = backframe
@@ -865,9 +932,7 @@ function slib:Createframe(text)
 	closebutton.MouseEnter:Connect(function()
 		S_ELP()
 	end)
-	closebutton.MouseLeave:Connect(function()
-		S_ELP()
-	end)
+
 
 
 
@@ -889,9 +954,7 @@ function slib:Createframe(text)
 	consolebutton.MouseEnter:Connect(function()
 		S_ELP()
 	end)
-	consolebutton.MouseLeave:Connect(function()
-		S_ELP()
-	end)
+
 
 	settingsbutton.Name = "settingsbutton"
 	settingsbutton.Parent = utilitybar
@@ -912,9 +975,7 @@ function slib:Createframe(text)
 	settingsbutton.MouseEnter:Connect(function()
 		S_ELP()
 	end)
-	settingsbutton.MouseLeave:Connect(function()
-		S_ELP()
-	end)
+
 
 
 	versionlabel.Name = "versionlabel"
@@ -925,7 +986,7 @@ function slib:Createframe(text)
 	versionlabel.Size = UDim2.new(0,14,0,21)
 	versionlabel.TextSize = 14
 	versionlabel.Font = F_ssi
-	versionlabel.Text = "vA.5"
+	versionlabel.Text = _G.Version
 	versionlabel.TextColor3 = Color3.fromRGB(67, 224, 96)
 	versionlabel.ZIndex = 1
 
@@ -955,70 +1016,6 @@ function slib:Createframe(text)
 	--return slib2
 	return slib3
 end
---return slib
---^^^enable if using loadstring
------------------------------------------------------------------------
------------------------------------------------------------------------
------------------------------------------------------------------------
---Core UI Code Above
-print("AZRAEL X - vA.5")
------------------------------------------------------------------------
------------------------------------------------------------------------
------------------------------------------------------------------------
------------------------------------------------------------------------
------------------------------------------------------------------------
------------------------------------------------------------------------
---build gui below
---create buttons under the bodyframe that you want it to be in, and the bodyframes and buttons need to have different names or it wont work
-					local temp = slib:Createframe("ESP Manager V5")
-
-
-
-					local body1 = temp:CreateBody("body")
-					slib2("Hi-Lite V2", function()
-						loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V2"))()
-					end)
-
-					slib2("Destroy Hi-Lite", function()
-						game.CoreGui.hi_litez:Destroy()
-					end)
-
-					slib2("Refresh Hi-Lite V2", function()
-						game.CoreGui.hi_litez:Destroy()
-						wait(.75)
-						loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V2"))()
-						print("Refreshed")
-					end)
-
-					slib2("Loop Hi-Lite (Deprecated)", function()
-						loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/highlightESPv2-loop"))() 
-					end)
-
-					local body2 = temp:CreateBody("body2")
-					slib2("Unnamed ESP", function()
-						loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))()
-					end)
-
-					local body3 = temp:CreateBody("body3")
-					slib2("IVP Panel (Deprecated)", function()
-						loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/health%26itemviewer'))()
-					end)
-					slib2("Hi-Lite V3", function()
-						loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-ALPHA'))()
-					end)
-					slib2("Refresh Hi-Lite V3", function()
-						game.CoreGui.hi_litez:Destroy()
-						wait(.75)
-						loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-ALPHA'))()
-						print("Refreshed")
-					end)
-					slib2("Boxes", function()
-						loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-boxes'))()
-					end)
-					slib2("Destroy Boxes", function()
-						game.CoreGui.hi_litez_boxes:Destroy()
-					end)
-----------------------------------------------------------------------------------------------------------------------------------------------
 local function closingin2()
 
 	local closinl = game.Players.LocalPlayer.PlayerGui.SG.notifym.closingi
@@ -1035,69 +1032,105 @@ local function closingin2()
 	wait(.5)
 	game.Players.LocalPlayer.PlayerGui.SG.notifym:Destroy()
 end
-
-closingin2()
-				else
-					cksoutput.Text = (o_CKSOUTPUTTXT..CKSOUTPUTTXT_I)
-				end
-			end
-		end
-
-
-
-
-		ckscheck.Name = "ckscheck"
-		ckscheck.Parent = cks_sg
-		ckscheck.BackgroundColor3 = Color3.fromRGB(17,17,17)
-		ckscheck.BorderSizePixel = 0
-		ckscheck.BackgroundTransparency = 0
-		ckscheck.Position = UDim2.new(0.465,0,0.5,0)
-		ckscheck.Size = UDim2.new(0,132,0,28)
-		ckscheck.Font = F_ssl
-		ckscheck.TextColor3 = Color3.fromRGB(0, 174, 255)
-		ckscheck.TextScaled = true
-		ckscheck.Text = "CHECK"
-		ckscheck.ZIndex = 999999998
-		ckscheck.LineHeight = 1
-		ckscheck.MouseButton1Up:Connect(function()
-			ckscheck2()
-		end)
-
-		uicor1.Name = "UICorner"
-		uicor1.Parent = cksoutput
-		uicor1.CornerRadius = UDim.new(0,15)
+--return slib
+--^^^enable if using loadstring
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+--Core UI Code Above
+print("AZRAEL X - ".._G.Version)
+-----------------------------------------------------------------------
 
 
-		uicor2.Name = "UICorner2"
-		uicor2.Parent = ckscheck
-		uicor2.CornerRadius = UDim.new(0,15)
 
 
-		uicor3.Name = "UICorner3"
-		uicor3.Parent = cksinput
-		uicor3.CornerRadius = UDim.new(0,15)
 
-		for i = 20,0,-1 do
-			closetimer.Text = i
-			wait(1)
-			if i == 0 then
-				closetimer.Text = "0"
-				if trfa.Value == true then
-					print("spared")
-					closetimer.Text = "CODE ENTERED, SPARED"
-					break
-				else
-					game.Players.LocalPlayer:Kick("Timer Ended")
-				end
-			end
-		end
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Look At Documentation For Information
+local temp = AZX:CreateUI("ESP Manager V6")
+
+
+
+local body1 = temp:CreateBody("body")
+addButton("Hi-Lite V2", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V2"))()
+end)
+
+addButton("Refresh Hi-Lite V2", function()
+game.CoreGui.hi_litez:Destroy()
+wait(.35)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V2"))()
+print("Refreshed")
+end)
+
+addButton("Destroy Hi-Lite V2", function()
+	game.CoreGui.hi_litez:Destroy()
+end)
+
+
+local body2 = temp:CreateBody("body2")
+addButton("Unnamed ESP", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))()
+end)
+
+
+local body3 = temp:CreateBody("body3")
+
+addLongButton("Hi-Lite V3 Beta", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-BETA'))()
+
+_G.ConsoleMsg("HL V3 IS PERMANENT AND CANNOT BE DISABLED YET", _G.clb_warning)
+_G.ConsoleMsg("DO NOT EXECUTE MORE THAN ONCE", _G.clb_warning)
+_G.ConsoleMsg("HI-LITE V3 BETA LOADED", _G.clb_external1)
+end)
+
+addSpacer()
+
+addSpacer()
+
+addButtonAndInputSection("Game ID Here", "Execute Special ESP", function()
+	local TheBoxValue = _G.globalBOXINPUT
+  
+	if TheBoxValue == "2317712696" then
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-A-TWW_EDITION'))()
 	end
 
+	if TheBoxValue == "11997674134" then
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-WASTELANDTYCOON_EDITION'))()
+	end
+
+end)
+
+addButton("Destroy Old Hi-Lite Folder", function()
+	game.CoreGui.hi_litez:Destroy()
+end)
 
 
-	local cksss = slib0:Createframe("CKS")
 
-end
-cks()
+_G.ConsoleMsg("2317712696", _G.clb_external1)
+_G.ConsoleMsg("^^^ The Wild West", _G.clb_external1)
+_G.ConsoleMsg("11997674134", _G.clb_external1)
+_G.ConsoleMsg("^^^ Wasteland Tycoon", _G.clb_external1)
 
-print("EM-V5 - PWN#2203")
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------
+closingin2()
