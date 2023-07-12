@@ -1032,7 +1032,7 @@ local function closingin2()
 	wait(.5)
 	game.Players.LocalPlayer.PlayerGui.SG.notifym:Destroy()
 end
-return slib
+--return slib
 --^^^enable if using loadstring
 
 print("AZRAEL X - ".._G.Version)
