@@ -534,47 +534,105 @@ end
 players.PlayerAdded:Connect(playeradded2)
 
 
-  
-  AddNameTag3 = function(Character)
-		local BGui = Instance.new("BillboardGui", Folder)
-		local Frame = Instance.new("Frame", BGui)
-		local TextLabel = Instance.new("TextLabel", Frame)
 
-		BGui.Adornee = Character:WaitForChild("Head")
-		BGui.StudsOffset = Vector3.new(0, 5, 0)
-		BGui.AlwaysOnTop = true
-		BGui.ResetOnSpawn = false
 
-		BGui.Size = UDim2.new(4, 0, 0.5, 0)
-		Frame.Size = UDim2.new(1, 0, 1, 0)
-		TextLabel.Size = UDim2.new(1, 0, 1, 0)
-		TextLabel.TextSize = 13
-		Frame.BackgroundTransparency = 1
-		TextLabel.BackgroundTransparency = 1
+--[[
+local function pse3(play, char)
+    local hrp = char:WaitForChild("HumanoidRootPart")
+    local hum = char:WaitForChild("Humanoid")
+    local hrppos = hrp.Position
+    --print(hrppos)
 
-		local selectedplayer = Character.Name
-		local charpath = Character
-		local charhum = charpath:WaitForChild("Humanoid")
-		local playerhealth = charhum.Health
 
-		
-		TextLabel.Text = playerhealth
-		
-				local function onhealthchang(health)
-			local chang = math.abs(playerhealth - health)
-			playerhealth = health
-			local roundedhealth = string.format("%.2f", health)
-			TextLabel.Text = roundedhealth
-		end
-		
-		charhum.HealthChanged:Connect(onhealthchang)
-		
-		TextLabel.Font = TextFont
-		TextLabel.TextColor3 = NameColor
-		TextLabel.TextScaled = NamePositioning
-		TextLabel.TextStrokeTransparency = 0
-		TextLabel.TextStrokeColor3 = Color3.fromRGB(1,1,1)
-	end
+
+    local Line = Drawing.new("Text")
+    --Line.Text = "Test"
+    Line.Visible = false
+    Line.Position = hrppos
+    --Line.Position = Vector2.new(500, 500)
+    --Line.To = Vector2.new(200, 200)
+    Line.Color = Color3.fromRGB(67, 224, 97)
+    Line.OutlineColor = Color3.fromRGB(1, 1, 1)
+    Line.Thickness = 2
+    Line.Transparency = 1
+    Line.ZIndex = 647
+    Line.Font = 3
+    Line.Center = true
+
+
+
+    local conect0
+    local conect0sequel
+    local conect0sequel2
+
+    local function bye()
+        Line.Visible = false
+        Line:Remove()
+
+        if conect0 then
+            conect0:Disconnect()
+            conect0 = nil
+        end
+
+        if conect0sequel then
+            conect0sequel:Disconnect()
+            conect0sequel = nil
+        end
+
+        if conect0sequel2 then
+            conect0sequel2:Disconnect()
+            conect0sequel2 = nil
+        end
+
+    end
+
+    conect0sequel = char.AncestryChanged:Connect(function(_,parent)
+        if not parent then
+            bye()
+        end
+    end)
+
+    local hst_dead = Enum.HumanoidStateType.Dead
+
+    conect0sequel2 = hum.HealthChanged:Connect(function(healthv)
+        if (healthv<=0) or (hum:GetState() == hst_dead) then
+            bye()
+        end
+    end)
+
+
+    conect0 = sr.RenderStepped:Connect(function()
+            local hrpp,hrponscreen = cc:WorldToViewportPoint(hrp.Position)
+
+        if hrponscreen  then
+            Line.Position = Vector2.new(hrpp.X, hrpp.Y + -60)
+            --Line.Position = Vector2.new(hrpp.X + -30, hrpp.Y + -80)
+            Line.Visible = true
+        else
+            Line.Visible = false
+        end
+
+    end)
+
+
+
+end
+local function playeradded3(play)
+    if play.Character then
+        pse3(play, play.Character)
+    end
+    play.CharacterAdded:Connect(function(char)
+        pse3(play, char)
+    end)
+end
+for i,v in next, players:GetPlayers() do
+    if v ~= localplayer then
+        playeradded3(v)
+    end
+end
+
+players.PlayerAdded:Connect(playeradded3)
+]]
 
 
 	--print("Item And Health Viewer Made By Pwn#2203")
