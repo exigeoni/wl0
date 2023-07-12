@@ -1,0 +1,1040 @@
+--[[
+ █████╗ ███████╗██████╗  █████╗ ███████╗██╗         ██╗  ██╗
+██╔══██╗╚══███╔╝██╔══██╗██╔══██╗██╔════╝██║         ╚██╗██╔╝
+███████║  ███╔╝ ██████╔╝███████║█████╗  ██║          ╚███╔╝ 
+██╔══██║ ███╔╝  ██╔══██╗██╔══██║██╔══╝  ██║          ██╔██╗ 
+██║  ██║███████╗██║  ██║██║  ██║███████╗███████╗    ██╔╝ ██╗
+╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝    ╚═╝  ╚═╝
+                                                            
+                                                                
+
+ ____ ____ _________ ____ ____ ____ ____ ____ ____ ____ ____ 
+||B |||Y |||       |||P |||W |||N |||# |||2 |||2 |||0 |||3 ||
+||__|||__|||_______|||__|||__|||__|||__|||__|||__|||__|||__||
+|/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+(EVERYTHING by Pwn#2203)
+vA.6
+]]
+
+--a few globals
+_G.Version = "vA.6"
+_G.PrintHiddenStatusLog = true
+
+local AZX = {}
+
+
+function AZX:CreateUI(text)
+	local sg = Instance.new("ScreenGui")
+	local uicorn1 = Instance.new("UICorner")
+	local notify = Instance.new("Frame")
+	local mainframe = Instance.new("Frame")
+	local utilitybar = Instance.new("Frame")
+	local backframe = Instance.new("ScrollingFrame")
+
+	local consolebody = Instance.new("ScrollingFrame")
+	local consolebodyback = Instance.new("Frame")
+
+	local configbody = Instance.new("ScrollingFrame")
+	local configback = Instance.new("Frame")
+	local configclosebuton = Instance.new("TextButton")
+
+	local closebutton = Instance.new("TextButton")
+	local consoleclosebutton = Instance.new("TextButton")
+	local minimizebutton = Instance.new("TextButton")
+	local maximizebutton = Instance.new("TextButton")
+	local settingsbutton = Instance.new("TextButton")
+	local consolebutton = Instance.new("TextButton")
+
+	local versionlabel = Instance.new("TextLabel")
+	local titl2 = Instance.new("TextLabel")
+	local noti2 = Instance.new("TextLabel")
+	local closingin = Instance.new("TextLabel")
+
+	local gridy2 = Instance.new("UIGridLayout")
+	local gridy3 = Instance.new("UIGridLayout")
+	local gridy4 = Instance.new("UIGridLayout")
+	local gridy5 = Instance.new("UIGridLayout")
+
+	local S_AXL = Instance.new("Sound")
+	local S_EL = Instance.new("Sound")
+	S_EL.Name = "enterleavesond"
+	S_EL.Parent = sg
+	S_EL.SoundId = "rbxassetid://9114233865"
+	S_EL.TimePosition = 0
+	S_EL.Volume = 3
+	local function S_ELP()
+		S_EL:Play()
+	end
+
+
+	local uicorn1 = Instance.new("UICorner")
+	local uicorn2 = Instance.new("UICorner")
+	local uicorn5 = Instance.new("UICorner")
+	local uicorn6 = Instance.new("UICorner")
+	local uicorn7 = Instance.new("UICorner")
+	local uicorn8 = Instance.new("UICorner")
+	local bfuistroke = Instance.new("UIStroke")
+	local ubUIStroke = Instance.new("UIStroke")
+	local notiUIStroke = Instance.new("UIStroke")
+
+	--------
+	---------FONTS
+	local F_fs = Enum.Font.SpecialElite
+	local F_pm = Enum.Font.PermanentMarker
+	local F_sp = Enum.Font.Michroma
+	local F_ss = Enum.Font.SourceSans
+	local F_ssB = Enum.Font.SourceSansBold
+	local F_sssb = Enum.Font.SourceSansSemibold
+	local F_ssl = Enum.Font.SourceSansLight
+	local F_ssi = Enum.Font.SourceSansItalic
+	local F_tw = Enum.Font.TitilliumWeb
+	---------
+	--------
+	
+	
+	local toggle = false
+
+
+function onKeyPress(actionName, userInputState, inputObject)
+    if userInputState == Enum.UserInputState.Begin then
+        if toggle == false then
+             toggle = true
+            sg.Enabled = true
+        else
+            toggle = false
+            sg.Enabled = false
+        end
+    end
+end
+
+game.ContextActionService:BindAction("keyPress", onKeyPress, false, Enum.KeyCode.Equals)
+print("Press = To Show/Hide GUI")
+	
+	local slib3 = {}
+
+	function slib3:CreateBody(bname)
+		local body = Instance.new("Frame")
+
+
+		body.Name = bname
+		body.Parent = backframe
+		body.BackgroundColor3 = Color3.fromRGB(16,16,16)
+		body.BorderSizePixel = 0
+		body.Position = UDim2.new(0.096,0,0.215,0)
+		body.Size = UDim2.new(0,200,0,334)
+		body.ZIndex = 1
+
+
+		local bodyUIStroke = Instance.new("UIStroke")
+		bodyUIStroke.Name = "bodyUIStroke"
+		bodyUIStroke.Parent = body
+		bodyUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+		bodyUIStroke.Color = Color3.fromRGB(67,224,96)
+		bodyUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+		bodyUIStroke.Thickness = 0.55
+		bodyUIStroke.Transparency = 0.55
+
+		local uicorn3 = Instance.new("UICorner")
+		uicorn3.Name = "UICorner3"
+		uicorn3.Parent = body
+		uicorn3.CornerRadius = UDim.new(0,8)
+
+		local gridy = Instance.new("UIGridLayout")
+		gridy.Parent = body
+		gridy.SortOrder = Enum.SortOrder.LayoutOrder
+		gridy.CellPadding = UDim2.new(0,5,0,5)
+		gridy.CellSize = UDim2.new(0,47,0,25)
+		gridy.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		gridy.VerticalAlignment = Enum.VerticalAlignment.Center
+
+
+
+		local function minimize_show()
+			backframe.Visible = true
+			backframe.Active = true
+			body.Visible = true
+			body.Active = true
+			titl2.Visible = true
+			titl2.Active = true
+			versionlabel.Visible = true
+			versionlabel.Active = true
+			mainframe.BackgroundTransparency = 0
+			mainframe.Active = true
+			
+			
+			
+			
+
+		end
+
+		local function minimize_hide()
+			backframe.Visible = false
+			backframe.Active = false
+			body.Visible = false
+			body.Active = false
+			titl2.Visible = false
+			titl2.Active = false
+			versionlabel.Visible = false
+			versionlabel.Active = false
+			mainframe.BackgroundTransparency = 1
+			mainframe.Active = false
+			configback.Visible = false
+			configbody.Visible = false
+			consolebody.Visible = false
+			consolebodyback.Visible = false
+
+		end
+		local toggled = false
+		minimizebutton.Name = "minimizebutton"
+		minimizebutton.Parent = utilitybar
+		minimizebutton.BackgroundTransparency = 1
+		minimizebutton.BorderSizePixel = 0
+		minimizebutton.Font = F_tw
+		minimizebutton.TextColor3 = Color3.fromRGB(221, 255, 0)
+		minimizebutton.TextScaled = true
+		minimizebutton.Text = "-"
+		minimizebutton.Position = UDim2.new(0.82,0,0.099,0)
+		minimizebutton.Size = UDim2.new(0,30,0,30)
+		minimizebutton.ZIndex = 1
+		minimizebutton.MouseButton1Up:Connect(function()
+       	 if toggled == false then
+       	 		minimize_hide()
+        	    toggled = true
+       	 else
+       	 		minimize_show()
+        	    toggled = false
+       		end
+	end)
+		minimizebutton.MouseEnter:Connect(function()
+			S_ELP()
+		end)
+
+
+		
+
+
+		--local slib2 = {}
+		function addButton(text, bscript)
+
+			local bscript = bscript or function() end
+
+
+			local nbuton = Instance.new("TextButton")
+			local tbUIStroke = Instance.new("UIStroke")
+			tbUIStroke.Parent = nbuton
+			tbUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+			tbUIStroke.Color = Color3.fromRGB(67,224,96)
+			tbUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+			tbUIStroke.Thickness = 1
+			tbUIStroke.Transparency = 0
+
+			local uicorn4 = Instance.new("UICorner")
+			uicorn4.Name = "UICorner4"
+			uicorn4.Parent = nbuton
+			uicorn4.CornerRadius = UDim.new(0,8)
+
+			nbuton.Parent = body
+			nbuton.BackgroundColor3 = Color3.fromRGB(9,9,9)
+			nbuton.BorderSizePixel = 1
+			nbuton.Position = UDim2.new(0.665,0 ,1,0)
+			nbuton.Size = UDim2.new(0,75,0,20)
+			nbuton.Font = F_ss
+			nbuton.TextColor3 = Color3.fromRGB(67, 224, 96)
+			nbuton.TextScaled = true
+			nbuton.Text = text
+			nbuton.Name = nbuton.Text
+			nbuton.MouseButton1Down:Connect(function()
+				pcall(bscript)
+			end)
+			nbuton.MouseEnter:Connect(function()
+				S_ELP()
+			end)
+
+		end
+		
+		function addToggleButton(text, bscript, bscript2)
+			
+			
+			
+			local bscript = bscript or function() end
+			local bscript2 = bscript2 or function() end
+			
+			local toggleb = false
+
+			local nbuton = Instance.new("TextButton")
+			local tbUIStroke = Instance.new("UIStroke")
+			tbUIStroke.Parent = nbuton
+			tbUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+			tbUIStroke.Color = Color3.fromRGB(67,224,96)
+			tbUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+			tbUIStroke.Thickness = 1
+			tbUIStroke.Transparency = 0
+
+			local uicorn4 = Instance.new("UICorner")
+			uicorn4.Name = "UICorner4"
+			uicorn4.Parent = nbuton
+			uicorn4.CornerRadius = UDim.new(0,8)
+
+			nbuton.Parent = body
+			nbuton.BackgroundColor3 = Color3.fromRGB(9,9,9)
+			nbuton.BorderSizePixel = 1
+			nbuton.Position = UDim2.new(0.665,0 ,1,0)
+			nbuton.Size = UDim2.new(0,75,0,20)
+			nbuton.Font = F_ss
+			nbuton.TextColor3 = Color3.fromRGB(67, 224, 96)
+			nbuton.TextScaled = true
+			nbuton.Text = text
+			nbuton.Name = nbuton.Text
+    nbuton.MouseButton1Down:Connect(function()
+        if toggleb == false then
+            toggleb = true
+            bscript()
+            nbuton.TextColor3 = Color3.fromRGB(15, 252, 3)
+        else
+            toggleb = false
+            bscript2()
+            nbuton.TextColor3 = Color3.fromRGB(255, 64, 64)
+        end
+    end)
+			nbuton.MouseEnter:Connect(function()
+				S_ELP()
+			end)
+			
+			
+			
+			
+			
+
+
+			
+			
+			
+			
+			
+		end
+
+		
+		function addLongButton(text, bscript)
+
+			local bscript = bscript or function() end
+
+
+			local nbuton = Instance.new("TextButton")
+			local tbUIStroke = Instance.new("UIStroke")
+			tbUIStroke.Parent = nbuton
+			tbUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+			tbUIStroke.Color = Color3.fromRGB(67,224,96)
+			tbUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+			tbUIStroke.Thickness = 1
+			tbUIStroke.Transparency = 0
+
+
+			local uicorn4 = Instance.new("UICorner")
+			uicorn4.Name = "UICorner4"
+			uicorn4.Parent = nbuton
+			uicorn4.CornerRadius = UDim.new(0,8)
+
+			nbuton.Parent = body
+			nbuton.BackgroundColor3 = Color3.fromRGB(9,9,9)
+			nbuton.BorderSizePixel = 1
+			nbuton.Position = UDim2.new(0.665,0 ,1,0)
+			nbuton.Size = UDim2.new(0,75,0,20)
+			nbuton.Font = F_ss
+			nbuton.TextColor3 = Color3.fromRGB(67, 224, 96)
+			nbuton.TextScaled = true
+			nbuton.Text = text
+			nbuton.Name = nbuton.Text
+			nbuton.MouseButton1Down:Connect(function()
+				pcall(bscript)
+			end)
+			nbuton.MouseEnter:Connect(function()
+				S_ELP()
+			end)
+ 
+
+
+
+			local sizechangr = Instance.new("UISizeConstraint")
+			sizechangr.Parent = nbuton
+			sizechangr.Name = "uizier"
+			sizechangr.MinSize = Vector2.new(141,25)
+
+		end
+
+
+		function addSpacer()
+			local nbuton = Instance.new("TextButton")
+
+
+			local uicorn4 = Instance.new("UICorner")
+			uicorn4.Name = "UICorner4"
+			uicorn4.Parent = nbuton
+			uicorn4.CornerRadius = UDim.new(0,8)
+
+			nbuton.Parent = body
+			nbuton.Transparency = 1
+			nbuton.BackgroundColor3 = Color3.fromRGB(9,9,9)
+			nbuton.BorderSizePixel = 0
+			nbuton.Position = UDim2.new(0.665,0 ,1,0)
+			nbuton.Size = UDim2.new(0,75,0,20)
+			nbuton.Font = F_ss
+			nbuton.TextColor3 = Color3.fromRGB(67, 224, 96)
+			nbuton.TextScaled = true
+			nbuton.Text = " "
+			nbuton.Name = "spacer"
+
+		end
+
+		function addButtonAndInputSection(boxtext, buttontext, buttonscript01)
+			local uisizconst2 = Instance.new("UISizeConstraint")
+
+			local nbox = Instance.new("TextBox")
+			local tbUIStroke = Instance.new("UIStroke")
+			tbUIStroke.Parent = nbox
+			tbUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+			tbUIStroke.Color = Color3.fromRGB(67,224,96)
+			tbUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+			tbUIStroke.Thickness = 1
+			tbUIStroke.Transparency = 0
+
+			local uicorn4 = Instance.new("UICorner")
+			uicorn4.Name = "UICorner4"
+			uicorn4.Parent = nbox
+			uicorn4.CornerRadius = UDim.new(0,8)
+
+			nbox.Parent = body
+			nbox.BackgroundColor3 = Color3.fromRGB(9,9,9)
+			nbox.BorderSizePixel = 1
+			nbox.Position = UDim2.new(0.665,0 ,1,0)
+			nbox.Size = UDim2.new(0,75,0,20)
+			nbox.Font = F_ss
+			nbox.TextColor3 = Color3.fromRGB(67, 224, 96)
+			nbox.TextScaled = true
+			nbox.Text = boxtext
+			nbox.Name = "inpnbox"
+
+			local uisizconst = Instance.new("UISizeConstraint")
+			uisizconst.Parent = nbox
+			uisizconst.Name = "uisizconst"
+			uisizconst.MinSize = Vector2.new(141,25)
+
+
+
+
+			local function adddButton(buttontext0, buttonscript010)
+
+				local buttonscript01 = buttonscript01 or function() end
+				local buttontext0 = buttontext
+
+				local nbuton = Instance.new("TextButton")
+				local tbUIStroke = Instance.new("UIStroke")
+				tbUIStroke.Parent = nbuton
+				tbUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+				tbUIStroke.Color = Color3.fromRGB(67,224,96)
+				tbUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+				tbUIStroke.Thickness = 1
+				tbUIStroke.Transparency = 0
+
+				local uicorn4 = Instance.new("UICorner")
+				uicorn4.Name = "UICorner4"
+				uicorn4.Parent = nbuton
+				uicorn4.CornerRadius = UDim.new(0,8)
+
+				nbuton.Parent = body
+				nbuton.BackgroundColor3 = Color3.fromRGB(9,9,9)
+				nbuton.BorderSizePixel = 1
+				nbuton.Position = UDim2.new(0.665,0 ,1,0)
+				nbuton.Size = UDim2.new(0,75,0,20)
+				nbuton.Font = F_ss
+				nbuton.TextColor3 = Color3.fromRGB(67, 224, 96)
+				nbuton.TextScaled = true
+				nbuton.Text = buttontext0
+				nbuton.Name = nbuton.Text
+				nbuton.MouseButton1Down:Connect(function()
+					_G.globalBOXINPUT = nbox.Text
+					pcall(buttonscript01)
+				end)
+				nbuton.MouseEnter:Connect(function()
+					S_ELP()
+				end)
+
+			end
+
+			adddButton(buttontext, buttonscript01)
+
+		end
+
+	end
+
+	sg.Name = "SG"
+	sg.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	sg.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	sg.ResetOnSpawn = false
+
+	notify.Name = "notifym"
+	notify.Parent = sg
+	notify.BackgroundColor3 = Color3.fromRGB(29,29,29)
+	notify.BorderSizePixel = 0
+	notify.BackgroundTransparency = 0.25
+	notify.Position = UDim2.new(0.863,0,0.868,0)
+	notify.Size = UDim2.new(0,200,0,50)
+	notify.ZIndex = 98
+	notify.Active = true
+	notify.Draggable = true
+
+	noti2.Name = "noti2"
+	noti2.Parent = notify
+	noti2.BackgroundColor3 = Color3.fromRGB(29,29,29)
+	noti2.BorderSizePixel = 0
+	noti2.BackgroundTransparency = 0.05
+	noti2.Position = UDim2.new(0,0,0.34,0)
+	noti2.Size = UDim2.new(0,200,0,33)
+	noti2.Text = "AZRAEL X UI | BY PWN#2203 | ".._G.Version
+	noti2.TextScaled = false
+	noti2.TextSize = 8
+	noti2.TextColor3 = Color3.fromRGB(67,224,96)
+	noti2.TextYAlignment = Enum.TextYAlignment.Center
+	noti2.ZIndex = 99
+
+	notiUIStroke.Name = "notiUIStroke"
+	notiUIStroke.Parent = noti2
+	notiUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	notiUIStroke.Color = Color3.fromRGB(67,224,96)
+	notiUIStroke.LineJoinMode = Enum.LineJoinMode.Miter
+	notiUIStroke.Thickness = 0.51
+	notiUIStroke.Transparency = 0
+
+	closingin.Name = "closingi"
+	closingin.Parent = notify
+	closingin.BackgroundColor3 = Color3.fromRGB(29,29,29)
+	closingin.BorderSizePixel = 0
+	closingin.BackgroundTransparency = 1
+	closingin.Position = UDim2.new(0.73,0,0.76,0)
+	closingin.Size = UDim2.new(0,54,0,12)
+	closingin.Text = "CLOSING IN, 5"
+	closingin.TextScaled = true
+	closingin.TextColor3 = Color3.fromRGB(209, 139, 69)
+	closingin.ZIndex = 99
+
+
+
+	S_AXL.Name = "notifysound"
+	S_AXL.Parent = notify
+	S_AXL.SoundId = "rbxassetid://4612384434"
+	S_AXL.TimePosition = 0
+	S_AXL.Volume = 4
+
+
+	mainframe.Name = "mainframe"
+	mainframe.Parent = sg
+	mainframe.BackgroundColor3 = Color3.fromRGB(25,25,25)
+	mainframe.BorderSizePixel = 0
+	mainframe.BackgroundTransparency = 0
+	mainframe.Position = UDim2.new(0.076,0,0.147,0)
+	mainframe.Size = UDim2.new(0,250,0,465)
+	mainframe.ZIndex = -1
+	mainframe.Active = true
+	mainframe.Draggable = false
+
+
+	consolebody.Name = "consolebody"
+	consolebody.Parent = mainframe
+	consolebody.BackgroundColor3 = Color3.fromRGB(16,16,16)
+	consolebody.BorderSizePixel = 0
+	consolebody.BackgroundTransparency = 1
+	consolebody.Position = UDim2.new(1.088,0,0.097,0)
+	consolebody.Size = UDim2.new(0,200,0,334)
+	consolebody.ZIndex = 2
+	consolebody.Active = true
+	consolebody.Draggable = false
+	consolebody.ScrollBarImageColor3 = Color3.fromRGB(67,224,96)
+	consolebody.ScrollBarThickness = 6
+	consolebody.ClipsDescendants = true
+	consolebody.Visible = false
+
+	configbody.Name = "configbody"
+	configbody.Parent = mainframe
+	configbody.BackgroundColor3 = Color3.fromRGB(16,16,16)
+	configbody.BorderSizePixel = 0
+	configbody.BackgroundTransparency = 1
+	configbody.Position = UDim2.new(0.092,0,1.056,0)
+	configbody.Size = UDim2.new(0,200,0,129)
+	configbody.ZIndex = 2
+	configbody.Active = true
+	configbody.Draggable = false
+	configbody.ScrollBarImageColor3 = Color3.fromRGB(67,224,96)
+	configbody.ScrollBarThickness = 6
+	configbody.ClipsDescendants = true
+	configbody.Visible = false
+
+
+	local TIME_ZONE = 5
+	local date = os.date("!*t")
+	local hour = (date.hour + TIME_ZONE) % 24
+	local ampm = hour < 12 and "AM" or "PM"
+
+
+	local timestamp = string.format("%02i:%02i %s", ((hour - 1) % 12) + 1, date.min, ampm)..": 	:"
+
+	--console output types
+	-----
+	_G.clb_fatal = ":	:FATAL"
+	_G.clb_warning = ":	:WARNING"
+	_G.clb_log = ": 	:LOG"
+	_G.clb_external1 = ": 	:EXT"
+	-----
+
+	_G.ConsoleMsg = function(ctext, cstatus)
+		local consoleoutput = Instance.new("TextLabel")
+
+		consoleoutput.Name = "consoleoutput"
+		consoleoutput.Parent = consolebody
+		consoleoutput.BackgroundColor3 = Color3.fromRGB(9,9,9)
+		consoleoutput.BorderSizePixel = 0
+		consoleoutput.BackgroundTransparency = 1
+		consoleoutput.Position = UDim2.new(0,0,0,0)
+		consoleoutput.Size = UDim2.new(0,72,0,25)
+		consoleoutput.Text = timestamp..ctext..cstatus
+		consoleoutput.TextScaled = true
+		consoleoutput.TextColor3 = Color3.fromRGB(67,224,96)
+		consoleoutput.TextYAlignment = Enum.TextYAlignment.Center
+		consoleoutput.TextXAlignment = Enum.TextXAlignment.Left
+		consoleoutput.ZIndex = 0
+
+		if cstatus == _G.clb_fatal then
+			consoleoutput.TextColor3 = Color3.fromRGB(255, 52, 52)
+		end
+
+		if cstatus == _G.clb_warning then
+			consoleoutput.TextColor3 = Color3.fromRGB(255, 245, 110)
+		end
+
+		if cstatus == _G.clb_log then
+			consoleoutput.TextColor3 = Color3.fromRGB(255, 255, 255)
+		end
+		
+		if cstatus == _G.clb_external1 then
+			consoleoutput.TextColor3 = Color3.fromRGB(150, 213, 255)
+		end
+		
+	end
+
+
+
+	gridy3.Parent = consolebody
+	gridy3.SortOrder = Enum.SortOrder.LayoutOrder
+	gridy3.CellPadding = UDim2.new(0,5,0,5)
+	gridy3.CellSize = UDim2.new(0,190,0,15)
+	gridy3.FillDirection = Enum.FillDirection.Vertical
+	gridy3.FillDirectionMaxCells = 0
+	gridy3.StartCorner = Enum.StartCorner.TopLeft
+	gridy3.HorizontalAlignment = Enum.HorizontalAlignment.Left
+	gridy3.VerticalAlignment = Enum.VerticalAlignment.Top
+
+	uicorn7.Name = "UICorner"
+	uicorn7.Parent = consolebody
+	uicorn7.CornerRadius = UDim.new(0,8)
+
+	local function consoleshow()
+		consolebody.Visible = true
+		consolebodyback.Visible = true
+		if _G.PrintHiddenStatusLog == true then
+			_G.ConsoleMsg("Console Unhidden", _G.clb_log)
+		end
+	end
+
+	local function consolehide()
+		if _G.PrintHiddenStatusLog == true then
+			_G.ConsoleMsg("Console Hidden", _G.clb_log)
+		end
+		
+		consolebody.Visible = false
+		consolebodyback.Visible = false
+	end
+
+	local function configshow()
+		configbody.Visible = true
+		configback.Visible = true
+		if _G.PrintHiddenStatusLog == true then
+			_G.ConsoleMsg("Config Unhidden", _G.clb_log)
+		end
+		configbody.ScrollBarImageTransparency = 1
+	end
+
+	local function confighide()
+	if _G.PrintHiddenStatusLog == true then
+		_G.ConsoleMsg("Config Hidden", _G.clb_log)
+	end
+		wait(.05)
+		configbody.Visible = false
+		configbody.ScrollBarImageTransparency = 0
+		configback.Visible = false
+	end
+
+	consolebodyback.Name = "consolebodyback"
+	consolebodyback.Parent = mainframe
+	consolebodyback.BackgroundColor3 = Color3.fromRGB(16,16,16)
+	consolebodyback.BorderSizePixel = 0
+	consolebodyback.BackgroundTransparency = .1
+	consolebodyback.Position = UDim2.new(1.048,0,0.076,0)
+	consolebodyback.Size = UDim2.new(0,220,0,354)
+	consolebodyback.ZIndex = -1
+	consolebodyback.Active = true
+	consolebodyback.Draggable = false
+	consolebodyback.Visible = false
+
+	configback.Name = "configback"
+	configback.Parent = mainframe
+	configback.BackgroundColor3 = Color3.fromRGB(16,16,16)
+	configback.BorderSizePixel = 0
+	configback.BackgroundTransparency = .1
+	configback.Position = UDim2.new(0.052,0,1.013,0)
+	configback.Size = UDim2.new(0,220,0,165)
+	configback.ZIndex = -1
+	configback.Active = true
+	configback.Draggable = false
+	configback.Visible = false
+
+	gridy5.Parent = configbody
+	gridy5.SortOrder = Enum.SortOrder.LayoutOrder
+	gridy5.CellPadding = UDim2.new(0,5,0,5)
+	gridy5.CellSize = UDim2.new(0,190,0,15)
+	gridy5.FillDirection = Enum.FillDirection.Vertical
+	gridy5.FillDirectionMaxCells = 0
+	gridy5.StartCorner = Enum.StartCorner.TopLeft
+	gridy5.HorizontalAlignment = Enum.HorizontalAlignment.Left
+	gridy5.VerticalAlignment = Enum.VerticalAlignment.Top
+
+	local configoption = Instance.new("TextButton")
+
+	
+	local togglec = false
+	
+	configoption.Name = "configoption"
+	configoption.Parent = configbody
+	configoption.BackgroundColor3 = Color3.fromRGB(9,9,9)
+	configoption.BorderSizePixel = 0
+	configoption.BackgroundTransparency = 1
+	configoption.Position = UDim2.new(0,0,0,0)
+	configoption.Size = UDim2.new(0,72,0,25)
+	configoption.Text = "Print Visiblity Status"
+	configoption.TextScaled = true
+	configoption.TextColor3 = Color3.fromRGB(67,224,96)
+	configoption.TextYAlignment = Enum.TextYAlignment.Center
+	configoption.TextXAlignment = Enum.TextXAlignment.Left
+	configoption.ZIndex = 0
+	configoption.MouseButton1Up:Connect(function()
+		op1value = true
+        if togglec == false then
+            togglec = true
+			-------------------------------
+			
+			_G.PrintHiddenStatusLog = true
+			
+			-------------------------------
+            configoption.TextColor3 = Color3.fromRGB(15, 252, 3)
+        else
+            togglec = false
+			-------------------------------
+			
+			_G.PrintHiddenStatusLog = false
+			
+			-------------------------------
+            configoption.TextColor3 = Color3.fromRGB(255, 64, 64)
+        end
+    end)
+	--configoption.Visible = false
+
+	local UserInputService = game:GetService("UserInputService")
+	local runService = (game:GetService("RunService"));
+
+	local gui = mainframe
+
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+
+	function Lerp(a, b, m)
+		return a + (b - a) * m
+	end;
+
+	local lastMousePos
+	local lastGoalPos
+	local DRAG_SPEED = (5); -- // The speed of the UI drag.
+	function Update(dt)
+		if not (startPos) then return end;
+		if not (dragging) and (lastGoalPos) then
+			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+			return 
+		end;
+
+		local delta = (lastMousePos - UserInputService:GetMouseLocation())
+		local xGoal = (startPos.X.Offset - delta.X);
+		local yGoal = (startPos.Y.Offset - delta.Y);
+		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+	end;
+
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			lastMousePos = UserInputService:GetMouseLocation()
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+
+	runService.Heartbeat:Connect(Update)
+
+	configclosebuton.Name = "consoleclosebutton"
+	configclosebuton.Parent = configback
+	configclosebuton.BackgroundTransparency = 1
+	configclosebuton.BorderSizePixel = 0
+	configclosebuton.Font = F_tw
+	configclosebuton.TextColor3 = Color3.fromRGB(221, 255, 0)
+	configclosebuton.TextScaled = true
+	configclosebuton.Text = "X"
+	configclosebuton.Position = UDim2.new(0.891,0,-0,0)
+	configclosebuton.Size = UDim2.new(0,24,0,21)
+	configclosebuton.ZIndex = 0
+	configclosebuton.MouseButton1Up:Connect(function()
+		confighide()
+	end)
+	consoleclosebutton.MouseEnter:Connect(function()
+		S_ELP()
+	end)
+
+
+	uicorn8.Name = "UICorner"
+	uicorn8.Parent = configback
+	uicorn8.CornerRadius = UDim.new(0,8)
+
+	uicorn6.Name = "UICorner"
+	uicorn6.Parent = consolebodyback
+	uicorn6.CornerRadius = UDim.new(0,8)
+
+	uicorn1.Name = "UICorner"
+	uicorn1.Parent = mainframe
+	uicorn1.CornerRadius = UDim.new(0,4)
+
+	consoleclosebutton.Name = "consoleclosebutton"
+	consoleclosebutton.Parent = consolebodyback
+	consoleclosebutton.BackgroundTransparency = 1
+	consoleclosebutton.BorderSizePixel = 0
+	consoleclosebutton.Font = F_tw
+	consoleclosebutton.TextColor3 = Color3.fromRGB(221, 255, 0)
+	consoleclosebutton.TextScaled = true
+	consoleclosebutton.Text = "X"
+	consoleclosebutton.Position = UDim2.new(0.891,0,-0,0)
+	consoleclosebutton.Size = UDim2.new(0,24,0,21)
+	consoleclosebutton.ZIndex = 0
+	consoleclosebutton.MouseButton1Up:Connect(function()
+		consolehide()
+	end)
+	consoleclosebutton.MouseEnter:Connect(function()
+		S_ELP()
+	end)
+
+
+	utilitybar.Name = "utilitybar"
+	utilitybar.Parent = mainframe
+	utilitybar.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+	utilitybar.BorderSizePixel = 0
+	utilitybar.BackgroundTransparency = 0
+	utilitybar.Position = UDim2.new(0.096,0,0.112,0)
+	utilitybar.Size = UDim2.new(0,200,0,30)
+	utilitybar.ZIndex = 1
+
+
+	gridy2.Parent = utilitybar
+	gridy2.SortOrder = Enum.SortOrder.LayoutOrder
+	gridy2.CellPadding = UDim2.new(0,5,0,5)
+	gridy2.CellSize = UDim2.new(0,30,0,30)
+	gridy2.HorizontalAlignment = Enum.HorizontalAlignment.Left
+	gridy2.VerticalAlignment = Enum.VerticalAlignment.Top
+
+	uicorn5.Name = "UICorner5"
+	uicorn5.Parent = utilitybar
+	uicorn5.CornerRadius = UDim.new(0,15)
+
+	ubUIStroke.Name = "UIStroke2"
+	ubUIStroke.Parent = utilitybar
+	ubUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	ubUIStroke.Color = Color3.fromRGB(67,224,96)
+	ubUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+	ubUIStroke.Thickness = 1.75
+	ubUIStroke.Transparency = 0
+
+	bfuistroke.Name = "UIStroke"
+	bfuistroke.Parent = backframe
+	bfuistroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	bfuistroke.Color = Color3.fromRGB(67,224,96)
+	bfuistroke.LineJoinMode = Enum.LineJoinMode.Round
+	bfuistroke.Thickness = 1
+	bfuistroke.Transparency = 0
+
+	uicorn2.Name = "UICorner2"
+	uicorn2.Parent = backframe
+	uicorn2.CornerRadius = UDim.new(0,8)
+
+
+	backframe.Name = "backframe"
+	backframe.Parent = mainframe
+	backframe.BackgroundColor3 = Color3.fromRGB(9,9,9)
+	backframe.BackgroundTransparency = 0
+	backframe.Size = UDim2.new(0,220,0,354)
+	backframe.Position = UDim2.new(0.06,0,0.193,0)
+	backframe.ZIndex = 0
+	backframe.ScrollBarThickness = 6
+	backframe.ScrollBarImageColor3 = Color3.fromRGB(67,224,96)
+	backframe.ClipsDescendants = true
+	backframe.BorderColor3 = Color3.fromRGB(9,9,9)
+	backframe.CanvasSize = UDim2.new(0,0,10,0)
+
+	gridy4.Name = "gridy4"
+	gridy4.Parent = backframe
+	gridy4.SortOrder = Enum.SortOrder.LayoutOrder
+	gridy4.CellPadding = UDim2.new(0,5,0,50)
+	gridy4.CellSize = UDim2.new(0,200,0,200)
+	gridy4.FillDirection = Enum.FillDirection.Vertical
+	gridy4.FillDirectionMaxCells = 0
+	gridy4.StartCorner = Enum.StartCorner.TopLeft
+	gridy4.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	gridy4.VerticalAlignment = Enum.VerticalAlignment.Top
+
+	closebutton.Name = "closebutton"
+	closebutton.Parent = utilitybar
+	closebutton.BackgroundTransparency = 1
+	closebutton.BorderSizePixel = 0
+	closebutton.Font = F_tw
+	closebutton.TextColor3 = Color3.fromRGB(221, 255, 0)
+	closebutton.TextScaled = true
+	closebutton.Text = "X"
+	closebutton.Position = UDim2.new(0.82,0,0.099,0)
+	closebutton.Size = UDim2.new(0,30,0,30)
+	closebutton.ZIndex = 1
+	closebutton.MouseButton1Up:Connect(function()
+		game.Players.LocalPlayer.PlayerGui.SG:Destroy()
+	end)
+	closebutton.MouseEnter:Connect(function()
+		S_ELP()
+	end)
+
+
+
+
+	consolebutton.Name = "consolebutton"
+	consolebutton.Parent = utilitybar
+	consolebutton.BackgroundTransparency = 1
+	consolebutton.BorderSizePixel = 0
+	consolebutton.Font = F_ss
+	consolebutton.TextColor3 = Color3.fromRGB(221, 255, 0)
+	consolebutton.TextScaled = false
+	consolebutton.TextSize = 10
+	consolebutton.Text = "CNSL"
+	consolebutton.Position = UDim2.new(0.82,0,0.099,0)
+	consolebutton.Size = UDim2.new(0,30,0,30)
+	consolebutton.ZIndex = 1
+	consolebutton.MouseButton1Up:Connect(function()
+		consoleshow()
+	end)
+	consolebutton.MouseEnter:Connect(function()
+		S_ELP()
+	end)
+
+
+	settingsbutton.Name = "settingsbutton"
+	settingsbutton.Parent = utilitybar
+	settingsbutton.BackgroundTransparency = 1
+	settingsbutton.BorderSizePixel = 0
+	settingsbutton.Font = F_tw
+	settingsbutton.TextColor3 = Color3.fromRGB(221, 255, 0)
+	settingsbutton.TextScaled = false
+	settingsbutton.TextSize = 10
+	settingsbutton.Text = "CONFIG"
+	settingsbutton.Position = UDim2.new(0.82,0,0.099,0)
+	settingsbutton.Size = UDim2.new(0,30,0,30)
+	settingsbutton.ZIndex = 1
+	settingsbutton.MouseButton1Up:Connect(function()
+		--consoleoutputlbl("CONFIG NOT ADDED", clb_fatal)
+		configshow()
+	end)
+	settingsbutton.MouseEnter:Connect(function()
+		S_ELP()
+	end)
+
+
+
+	versionlabel.Name = "versionlabel"
+	versionlabel.Parent = mainframe
+	versionlabel.BackgroundTransparency = 1
+	versionlabel.BorderSizePixel = 0
+	versionlabel.Position = UDim2.new(0.896,0,0.955,0)
+	versionlabel.Size = UDim2.new(0,14,0,21)
+	versionlabel.TextSize = 14
+	versionlabel.Font = F_ssi
+	versionlabel.Text = _G.Version
+	versionlabel.TextColor3 = Color3.fromRGB(67, 224, 96)
+	versionlabel.ZIndex = 1
+
+
+
+	titl2.Name = "titl2"
+	titl2.Parent = mainframe
+	titl2.BackgroundColor3 = Color3.fromRGB(9,9,9)
+	titl2.BorderSizePixel = 0
+	titl2.BackgroundTransparency = 0
+	titl2.Position = UDim2.new(0,0,0.028,0)
+	titl2.Size = UDim2.new(0,249,0,33)
+	titl2.Font = F_ssB
+	titl2.TextColor3 = Color3.fromRGB(67, 224, 96)
+	titl2.TextScaled = false
+	titl2.TextSize = 14
+	titl2.Text = text
+	titl2.ZIndex = 4
+	titl2.LineHeight = 1.6
+
+
+
+
+	S_AXL:Play()
+
+
+	--return slib2
+	return slib3
+end
+local function closingin2()
+
+	local closinl = game.Players.LocalPlayer.PlayerGui.SG.notifym.closingi
+
+	closinl.Text = "CLOSING IN, 4"
+	wait(1)
+	closinl.Text = "CLOSING IN, 3"
+	wait(1)
+	closinl.Text = "CLOSING IN, 2"
+	wait(1)
+	closinl.Text = "CLOSING IN, 1"
+	wait(1)
+	closinl.Text = "CLOSING"
+	wait(.5)
+	game.Players.LocalPlayer.PlayerGui.SG.notifym:Destroy()
+end
+return slib
+--^^^enable if using loadstring
+
+print("AZRAEL X - ".._G.Version)
+
+closingin2()
