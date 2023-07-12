@@ -1,68 +1,128 @@
-function espp()
-
-
-	local Outlines = true
-	local OutlineColoring = Color3.fromRGB(118, 252, 109) 
-	local OutlineFill = false
-	local FillOpacity = 1
-	local FillColoring = Color3.fromRGB(118, 252, 109) 
-	local NameTags = true
-	local TextFont = Enum.Font.SourceSansBold
-	local NameColor = Color3.fromRGB(118, 252, 109) 
-	local NamePositioning = false
 
 --[[
-   Originally By Polarrr#0001
-   
-   HEAVILY Modified By Pwn#2203
-   Item And Health Viewer Made By Pwn#2203 With The Help of Repr Module
+   Created By Pwn#2203
+
+   Thx Repr Module For Help With Inventory ESP
+
    V3 ALPHA EXPERIMENTAL
-   Hi-Lite V3 Adds Player Inventory To The ESP And The Ability to see what Team The Other Player Is On
-   V3 Is Experimental For Reasons Like Highlights Disappearing Sometimes When The Parent Character Dies, Or Weapons Not Being Detected In Some Games Due To Custom Inventories.
+
+   Now Using Drawing Library Instead Of Ingame GUIs
+
 --]]
 	Instance.new("ScreenGui")
 
 	local Folder = Instance.new("Folder", game:GetService("CoreGui"))
 	Folder.Name = "hi_litez"
 
-	AddOutline = function(Character)
-		local Highlight = Instance.new("Highlight", Folder)
 
-		Highlight.OutlineColor = OutlineColoring
+
+local players = game:GetService("Players")
+local cc = workspace.CurrentCamera
+local sr = game:GetService("RunService")
+local localplayer = players.LocalPlayer
+
+local function pse(play, char)
+    local hrp = char:WaitForChild("HumanoidRootPart")
+    local hum = char:WaitForChild("Humanoid")
+    local hrppos = hrp.Position
+    --print(hrppos)
+local Highlight = Instance.new("Highlight", Folder)
+    AddOutline = function(Character)
+		
+		Highlight.OutlineColor = Color3.fromRGB(67,224,97)
+        Highlight.FillTransparency = 1
 		Highlight.Adornee = Character
-
-		if OutlineFill == true then
-			Highlight.FillColor = FillColoring
-			Highlight.FillTransparency = FillOpacity
-		else
-			Highlight.FillTransparency = 1
-		end
 	end
 
-	AddNameTag = function(Character)
-		local BGui = Instance.new("BillboardGui", Folder)
-		local Frame = Instance.new("Frame", BGui)
-		local TextLabel = Instance.new("TextLabel", Frame)
+    AddOutline(char)
 
-		BGui.Adornee = Character:WaitForChild("Head")
-		BGui.StudsOffset = Vector3.new(0, 3, 0)
-		BGui.AlwaysOnTop = true
-		BGui.ResetOnSpawn = false
+    local Line = Drawing.new("Text")
+    --Line.Text = "Test"
+    Line.Visible = false
+    Line.Position = hrppos
+    --Line.Position = Vector2.new(500, 500)
+    --Line.To = Vector2.new(200, 200)
+    Line.Color = Color3.fromRGB(67, 224, 97)
+    Line.OutlineColor = Color3.fromRGB(1, 1, 1)
+    Line.Thickness = 2
+    Line.Transparency = 1
+    Line.ZIndex = 647
+    Line.Font = 3
+    Line.Center = true
 
-		BGui.Size = UDim2.new(4, 0, 0.5, 0)
-		Frame.Size = UDim2.new(1, 0, 1, 0)
-		TextLabel.Size = UDim2.new(1, 0, 1, 0)
-		TextLabel.TextSize = 16
-		Frame.BackgroundTransparency = 1
-		TextLabel.BackgroundTransparency = 1
+    local conect0
+    local conect0sequel
+    local conect0sequel2
 
-		TextLabel.Text = Character.Name
-		TextLabel.Font = TextFont
-		TextLabel.TextColor3 = NameColor
-		TextLabel.TextScaled = NamePositioning
-		TextLabel.TextStrokeTransparency = 0
-		TextLabel.TextStrokeColor3 = Color3.fromRGB(1,1,1)
-	end
+    local function bye()
+        Line.Visible = false
+        Line:Remove()
+
+        if conect0 then
+            conect0:Disconnect()
+            conect0 = nil
+        end
+
+        if conect0sequel then
+            conect0sequel:Disconnect()
+            conect0sequel = nil
+        end
+
+        if conect0sequel2 then
+            conect0sequel2:Disconnect()
+            conect0sequel2 = nil
+            Highlight:Destroy()
+        end
+
+    end
+
+    conect0sequel = char.AncestryChanged:Connect(function(_,parent)
+        if not parent then
+            bye()
+        end
+    end)
+
+    local hst_dead = Enum.HumanoidStateType.Dead
+
+    conect0sequel2 = hum.HealthChanged:Connect(function(healthv)
+        if (healthv<=0) or (hum:GetState() == hst_dead) then
+            bye()
+        end
+    end)
+
+
+    conect0 = sr.RenderStepped:Connect(function()
+            local hrpp,hrponscreen = cc:WorldToViewportPoint(hrp.Position)
+
+        if hrponscreen  then
+            Line.Position = Vector2.new(hrpp.X, hrpp.Y + -40)
+            --Line.Position = Vector2.new(hrpp.X + -30, hrpp.Y + -80)
+            Line.Text = play.Name
+            Line.Visible = true
+        else
+            Line.Visible = false
+        end
+
+    end)
+end
+local function playeradded(play)
+    if play.Character then
+        pse(play, play.Character)
+    end
+    play.CharacterAdded:Connect(function(char)
+        pse(play, char)
+    end)
+end
+for i,v in next, players:GetPlayers() do
+    if v ~= localplayer then
+        playeradded(v)
+    end
+end
+
+players.PlayerAdded:Connect(playeradded)
+
+--wait(10)
+--Line:Remove()
 
 
 
@@ -369,44 +429,111 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 
 
 
-	AddNameTag2 = function(Character)
-		local BGui = Instance.new("BillboardGui", Folder)
-		local Frame = Instance.new("Frame", BGui)
-		local TextLabel = Instance.new("TextLabel", Frame)
+local function pse2(play, char)
+    local hrp = char:WaitForChild("HumanoidRootPart")
+    local hum = char:WaitForChild("Humanoid")
+    local hrppos = hrp.Position
+    --print(hrppos)
 
-		BGui.Adornee = Character:WaitForChild("Head")
-		BGui.StudsOffset = Vector3.new(0, 7, 0)
-		BGui.AlwaysOnTop = true
-		BGui.ResetOnSpawn = false
 
-		BGui.Size = UDim2.new(4, 0, 0.5, 0)
-		Frame.Size = UDim2.new(1, 0, 1, 0)
-		TextLabel.Size = UDim2.new(1, 0, 1, 0)
-		TextLabel.TextSize = 13
-		Frame.BackgroundTransparency = 1
-		TextLabel.BackgroundTransparency = 1
 
-		local plyritemTable = nil
+    local Line = Drawing.new("Text")
+    --Line.Text = "Test"
+    Line.Visible = false
+    Line.Position = hrppos
+    --Line.Position = Vector2.new(500, 500)
+    --Line.To = Vector2.new(200, 200)
+    Line.Color = Color3.fromRGB(67, 224, 97)
+    Line.OutlineColor = Color3.fromRGB(1, 1, 1)
+    Line.Thickness = 2
+    Line.Transparency = 1
+    Line.ZIndex = 647
+    Line.Font = 3
+    Line.Center = true
 
-		local selectedplayer = Character.Name
+    local conect0
+    local conect0sequel
+    local conect0sequel2
+
+    local function bye()
+        Line.Visible = false
+        Line:Remove()
+
+        if conect0 then
+            conect0:Disconnect()
+            conect0 = nil
+        end
+
+        if conect0sequel then
+            conect0sequel:Disconnect()
+            conect0sequel = nil
+        end
+
+        if conect0sequel2 then
+            conect0sequel2:Disconnect()
+            conect0sequel2 = nil
+        end
+
+    end
+
+    conect0sequel = char.AncestryChanged:Connect(function(_,parent)
+        if not parent then
+            bye()
+        end
+    end)
+
+    local hst_dead = Enum.HumanoidStateType.Dead
+
+    conect0sequel2 = hum.HealthChanged:Connect(function(healthv)
+        if (healthv<=0) or (hum:GetState() == hst_dead) then
+            bye()
+        end
+    end)
+
+
+    conect0 = sr.RenderStepped:Connect(function()
+            local hrpp,hrponscreen = cc:WorldToViewportPoint(hrp.Position)
+
+        if hrponscreen  then
+            Line.Position = Vector2.new(hrpp.X, hrpp.Y + -80)
+            --Line.Position = Vector2.new(hrpp.X + -30, hrpp.Y + -80)
+
+        local plyritemTable = nil
+
+		local selectedplayer = char.Name
 		--local selectedplayer2 = Character.Name
-		local pathh = game.Players:WaitForChild(selectedplayer)
-		local charpath = Character
-		local charhum = charpath:WaitForChild("Humanoid")
-		local playerhealth = charhum.Health
+		local pathh = play
 		local plyrzbackpack = pathh:WaitForChild("Backpack")
 
 		local playeritemz = plyrzbackpack:GetChildren()
 		local plyritemTable = {playeritemz}
 
-		TextLabel.Text = repr(plyritemTable)
-		TextLabel.Font = TextFont
-		TextLabel.TextColor3 = pathh.TeamColor.Color
-		TextLabel.TextScaled = NamePositioning
-		TextLabel.TextStrokeTransparency = 0
-		TextLabel.TextStrokeColor3 = Color3.fromRGB(1,1,1)
+		    Line.Text = repr(plyritemTable)
+            Line.Color = play.TeamColor.Color
+            --Line.Text = play.Name
+            Line.Visible = true
+        else
+            Line.Visible = false
+        end
 
-	end
+    end)
+end
+local function playeradded2(play)
+    if play.Character then
+        pse2(play, play.Character)
+    end
+    play.CharacterAdded:Connect(function(char)
+        pse2(play, char)
+    end)
+end
+for i,v in next, players:GetPlayers() do
+    if v ~= localplayer then
+        playeradded2(v)
+    end
+end
+players.PlayerAdded:Connect(playeradded2)
+
+
   
   AddNameTag3 = function(Character)
 		local BGui = Instance.new("BillboardGui", Folder)
@@ -451,7 +578,7 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 
 
 	--print("Item And Health Viewer Made By Pwn#2203")
-
+--[[
 	for i, v in ipairs(game:GetService("Players"):GetPlayers()) do
 		if v ~= game:GetService("Players").LocalPlayer then
 			v.CharacterAdded:Connect(function(Character)
@@ -491,6 +618,11 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 		end)
 	end)
 end
+]]
+
+
+
+--[[
 local gameid = game.PlaceId
 
 if(gameid == 11997674134) then
@@ -509,5 +641,5 @@ elseif(gameid == 2317712696) then
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-A-TWW_EDITION'))()
 else
 print("HLV3 - Game ID Not Officially Recognized, ESP May Not Work If Game Has Custom Inventory Or Character Locations.")
-espp()
 end
+]]
