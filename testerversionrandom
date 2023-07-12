@@ -1117,7 +1117,34 @@ addButton("Destroy Old Hi-Lite Folder", function()
 	game.CoreGui.hi_litez:Destroy()
 end)
 
+addToggleButton("Toggle HLV3 Visiblity",          
+    function()
+    
+local fileexists = isfile("espvisibility.txt")
+if fileexists then
+    --print("config file exists")
+    appendfile("espvisibility.txt", "true")
+else
+    print("config file doesnt exist, creating file")
+    writefile("espvisibility.txt", "true")
+    print("config file created")
+end
 
+    end,
+    function()
+    
+local fileexists = isfile("espvisibility.txt")
+if fileexists then
+    --print("config file exists")
+    appendfile("espvisibility.txt", "false")
+else
+    print("config file doesnt exist, creating file")
+    writefile("espvisibility.txt", "false")
+    print("config file created")
+end
+
+    end
+)
 
 _G.ConsoleMsg("2317712696", _G.clb_external1)
 _G.ConsoleMsg("^^^ The Wild West", _G.clb_external1)
