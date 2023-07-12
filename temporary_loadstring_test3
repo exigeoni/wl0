@@ -1016,6 +1016,7 @@ print("Press = To Show/Hide GUI")
 	--return slib2
 	return slib3
 end
+--[[
 local function closingin2()
 
 	local closinl = game.Players.LocalPlayer.PlayerGui.SG.notifym.closingi
@@ -1032,9 +1033,10 @@ local function closingin2()
 	wait(.5)
 	game.Players.LocalPlayer.PlayerGui.SG.notifym:Destroy()
 end
+]]
 --return slib
 --^^^enable if using loadstring
 
 print("AZRAEL X - ".._G.Version)
 
-closingin2()
+--closingin2()
