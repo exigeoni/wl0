@@ -15,7 +15,7 @@
 	Folder.Name = "hi_litez"
 
 
-_G.visiblitystatus = readfile("espvisibility.txt")
+
 
 
 
@@ -33,15 +33,11 @@ local function pse(play, char)
 local Highlight = Instance.new("Highlight", Folder)
     AddOutline = function(Character)
 		
-		Highlight.OutlineColor = Color3.fromRGB(67,224,97)
+	Highlight.OutlineColor = Color3.fromRGB(67,224,97)
         Highlight.FillTransparency = 1
-		Highlight.Adornee = Character
+	Highlight.Adornee = Character
+        Highlight.OutlineTransparency = 0
 
-if _G.visiblitystatus == "true" then
-    Highlight.OutlineTransparency = 0
-else
-    Highlight.OutlineTransparency = 1
-end
 
 	end
 
@@ -56,11 +52,8 @@ end
     Line.Color = Color3.fromRGB(67, 224, 97)
     Line.OutlineColor = Color3.fromRGB(1, 1, 1)
     Line.Thickness = 2
-    if _G.visiblitystatus == "true" then
     Line.Transparency = 1
-else
-    Line.Transparency = 0
-end
+
     Line.ZIndex = 647
     Line.Font = 3
     Line.Center = true
@@ -461,11 +454,8 @@ local function pse2(play, char)
     Line.Color = Color3.fromRGB(67, 224, 97)
     Line.OutlineColor = Color3.fromRGB(1, 1, 1)
     Line.Thickness = 2
-    if _G.visiblitystatus == "true" then
     Line.Transparency = 1
-else
-    Line.Transparency = 0
-end
+
     Line.ZIndex = 647
     Line.Font = 3
     Line.Center = true
