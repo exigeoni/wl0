@@ -1100,14 +1100,20 @@ addSpacer()
 
 addSpacer()
 
-addButtonAndInputSection("Game ID Here", "Execute Special ESP", function()
+addButtonAndInputSection("Code Here, Check CNSL", "Execute Special ESP", function()
 	local TheBoxValue = _G.globalBOXINPUT
   
 	if TheBoxValue == "2317712696" then
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-A-TWW_EDITION'))()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-BETA-TWW'))()
+	end
+	if TheBoxValue == "tww" then
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-BETA-TWW'))()
 	end
 
 	if TheBoxValue == "11997674134" then
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-WASTELANDTYCOON_EDITION'))()
+	end
+	if TheBoxValue == "waste" then
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-WASTELANDTYCOON_EDITION'))()
 	end
 
@@ -1120,8 +1126,10 @@ end)
 
 
 _G.ConsoleMsg("2317712696", _G.clb_external1)
+_G.ConsoleMsg("tww", _G.clb_external1)
 _G.ConsoleMsg("^^^ The Wild West", _G.clb_external1)
 _G.ConsoleMsg("11997674134", _G.clb_external1)
+_G.ConsoleMsg("waste", _G.clb_external1)
 _G.ConsoleMsg("^^^ Wasteland Tycoon", _G.clb_external1)
 
 
