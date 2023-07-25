@@ -1,1 +1,1 @@
-print("Access Expired")
+warn("Access Expired")
