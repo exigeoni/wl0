@@ -1,5 +1,7 @@
+warn("--------------------------------------------------------------------")
 warn("UI LIBRARY AND ESP'S ARE STILL EARLY ACCESS AND HEAVILY EXPERIMENTAL")
 warn("PLEASE REPORT ANY BUGS OR GAMES THAT THE ESP DOESNT WORK ON")
+warn("--------------------------------------------------------------------")
 --[[
  █████╗ ███████╗██████╗  █████╗ ███████╗██╗         ██╗  ██╗
 ██╔══██╗╚══███╔╝██╔══██╗██╔══██╗██╔════╝██║         ╚██╗██╔╝
