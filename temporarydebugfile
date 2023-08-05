@@ -95,26 +95,26 @@ function AZX:CreateUI(text)
 	local F_tw = Enum.Font.TitilliumWeb
 	---------
 	--------
-	
-	
+
+
 	local toggle = false
 
 
-function onKeyPress(actionName, userInputState, inputObject)
-    if userInputState == Enum.UserInputState.Begin then
-        if toggle == false then
-             toggle = true
-            sg.Enabled = true
-        else
-            toggle = false
-            sg.Enabled = false
-        end
-    end
-end
+	function onKeyPress(actionName, userInputState, inputObject)
+		if userInputState == Enum.UserInputState.Begin then
+			if toggle == false then
+				toggle = true
+				sg.Enabled = true
+			else
+				toggle = false
+				sg.Enabled = false
+			end
+		end
+	end
 
-game.ContextActionService:BindAction("keyPress", onKeyPress, false, Enum.KeyCode.Equals)
-print("Press = To Show/Hide GUI")
-	
+	game.ContextActionService:BindAction("keyPress", onKeyPress, false, Enum.KeyCode.Equals)
+	print("Press = To Show/Hide GUI")
+
 	local slib3 = {}
 
 	function slib3:CreateBody(bname)
@@ -165,10 +165,10 @@ print("Press = To Show/Hide GUI")
 			versionlabel.Active = true
 			mainframe.BackgroundTransparency = 0
 			mainframe.Active = true
-			
-			
-			
-			
+
+
+
+
 
 		end
 
@@ -202,20 +202,20 @@ print("Press = To Show/Hide GUI")
 		minimizebutton.Size = UDim2.new(0,30,0,30)
 		minimizebutton.ZIndex = 1
 		minimizebutton.MouseButton1Up:Connect(function()
-       	 if toggled == false then
-       	 		minimize_hide()
-        	    toggled = true
-       	 else
-       	 		minimize_show()
-        	    toggled = false
-       		end
-	end)
+			if toggled == false then
+				minimize_hide()
+				toggled = true
+			else
+				minimize_show()
+				toggled = false
+			end
+		end)
 		minimizebutton.MouseEnter:Connect(function()
 			S_ELP()
 		end)
 
 
-		
+
 
 
 		--local slib2 = {}
@@ -256,14 +256,14 @@ print("Press = To Show/Hide GUI")
 			end)
 
 		end
-		
+
 		function addToggleButton(text, bscript, bscript2)
-			
-			
-			
+
+
+
 			local bscript = bscript or function() end
 			local bscript2 = bscript2 or function() end
-			
+
 			local toggleb = false
 
 			local nbuton = Instance.new("TextButton")
@@ -290,35 +290,35 @@ print("Press = To Show/Hide GUI")
 			nbuton.TextScaled = true
 			nbuton.Text = text
 			nbuton.Name = nbuton.Text
-    nbuton.MouseButton1Down:Connect(function()
-        if toggleb == false then
-            toggleb = true
-            bscript()
-            nbuton.TextColor3 = Color3.fromRGB(15, 252, 3)
-        else
-            toggleb = false
-            bscript2()
-            nbuton.TextColor3 = Color3.fromRGB(255, 64, 64)
-        end
-    end)
+			nbuton.MouseButton1Down:Connect(function()
+				if toggleb == false then
+					toggleb = true
+					bscript()
+					nbuton.TextColor3 = Color3.fromRGB(15, 252, 3)
+				else
+					toggleb = false
+					bscript2()
+					nbuton.TextColor3 = Color3.fromRGB(255, 64, 64)
+				end
+			end)
 			nbuton.MouseEnter:Connect(function()
 				S_ELP()
 			end)
-			
-			
-			
-			
-			
 
 
-			
-			
-			
-			
-			
+
+
+
+
+
+
+
+
+
+
 		end
 
-		
+
 		function addLongButton(text, bscript)
 
 			local bscript = bscript or function() end
@@ -355,7 +355,7 @@ print("Press = To Show/Hide GUI")
 			nbuton.MouseEnter:Connect(function()
 				S_ELP()
 			end)
- 
+
 
 
 
@@ -468,8 +468,104 @@ print("Press = To Show/Hide GUI")
 			adddButton(buttontext, buttonscript01)
 
 		end
+		
+		
+		
+		
+		
+		
+		function addButtonAndInputSection2(boxtext, buttontext, buttonscript01)
+			local uisizconst2 = Instance.new("UISizeConstraint")
 
+			local nbox = Instance.new("TextBox")
+			local tbUIStroke = Instance.new("UIStroke")
+			tbUIStroke.Parent = nbox
+			tbUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+			tbUIStroke.Color = Color3.fromRGB(67,224,96)
+			tbUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+			tbUIStroke.Thickness = 1
+			tbUIStroke.Transparency = 0
+
+			local uicorn4 = Instance.new("UICorner")
+			uicorn4.Name = "UICorner4"
+			uicorn4.Parent = nbox
+			uicorn4.CornerRadius = UDim.new(0,8)
+
+			nbox.Parent = body
+			nbox.BackgroundColor3 = Color3.fromRGB(9,9,9)
+			nbox.BorderSizePixel = 1
+			nbox.Position = UDim2.new(0.665,0 ,1,0)
+			nbox.Size = UDim2.new(0,75,0,20)
+			nbox.Font = F_ss
+			nbox.TextColor3 = Color3.fromRGB(67, 224, 96)
+			nbox.TextScaled = true
+			nbox.Text = boxtext
+			nbox.Name = "inpnbox"
+
+			local uisizconst = Instance.new("UISizeConstraint")
+			uisizconst.Parent = nbox
+			uisizconst.Name = "uisizconst"
+			uisizconst.MinSize = Vector2.new(141,25)
+
+
+
+
+			local function adddButton(buttontext0, buttonscript010)
+
+				local buttonscript01 = buttonscript01 or function() end
+				local buttontext0 = buttontext
+
+				local nbuton = Instance.new("TextButton")
+				local tbUIStroke = Instance.new("UIStroke")
+				tbUIStroke.Parent = nbuton
+				tbUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+				tbUIStroke.Color = Color3.fromRGB(67,224,96)
+				tbUIStroke.LineJoinMode = Enum.LineJoinMode.Round
+				tbUIStroke.Thickness = 1
+				tbUIStroke.Transparency = 0
+
+				local uicorn4 = Instance.new("UICorner")
+				uicorn4.Name = "UICorner4"
+				uicorn4.Parent = nbuton
+				uicorn4.CornerRadius = UDim.new(0,8)
+
+				nbuton.Parent = body
+				nbuton.BackgroundColor3 = Color3.fromRGB(9,9,9)
+				nbuton.BorderSizePixel = 1
+				nbuton.Position = UDim2.new(0.665,0 ,1,0)
+				nbuton.Size = UDim2.new(0,75,0,20)
+				nbuton.Font = F_ss
+				nbuton.TextColor3 = Color3.fromRGB(67, 224, 96)
+				nbuton.TextScaled = true
+				nbuton.Text = buttontext0
+				nbuton.Name = nbuton.Text
+				nbuton.MouseButton1Down:Connect(function()
+					_G.globalBOXINPUT2 = nbox.Text
+					pcall(buttonscript01)
+				end)
+				nbuton.MouseEnter:Connect(function()
+					S_ELP()
+				end)
+
+			end
+
+			adddButton(buttontext, buttonscript01)
+
+		end
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	end
+
+
+
+
 
 	sg.Name = "SG"
 	sg.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -617,11 +713,11 @@ print("Press = To Show/Hide GUI")
 		if cstatus == _G.clb_log then
 			consoleoutput.TextColor3 = Color3.fromRGB(255, 255, 255)
 		end
-		
+
 		if cstatus == _G.clb_external1 then
 			consoleoutput.TextColor3 = Color3.fromRGB(150, 213, 255)
 		end
-		
+
 	end
 
 
@@ -652,7 +748,7 @@ print("Press = To Show/Hide GUI")
 		if _G.PrintHiddenStatusLog == true then
 			_G.ConsoleMsg("Console Hidden", _G.clb_log)
 		end
-		
+
 		consolebody.Visible = false
 		consolebodyback.Visible = false
 	end
@@ -667,9 +763,9 @@ print("Press = To Show/Hide GUI")
 	end
 
 	local function confighide()
-	if _G.PrintHiddenStatusLog == true then
-		_G.ConsoleMsg("Config Hidden", _G.clb_log)
-	end
+		if _G.PrintHiddenStatusLog == true then
+			_G.ConsoleMsg("Config Hidden", _G.clb_log)
+		end
 		wait(.05)
 		configbody.Visible = false
 		configbody.ScrollBarImageTransparency = 0
@@ -712,9 +808,9 @@ print("Press = To Show/Hide GUI")
 
 	local configoption = Instance.new("TextButton")
 
-	
+
 	local togglec = false
-	
+
 	configoption.Name = "configoption"
 	configoption.Parent = configbody
 	configoption.BackgroundColor3 = Color3.fromRGB(9,9,9)
@@ -729,25 +825,24 @@ print("Press = To Show/Hide GUI")
 	configoption.TextXAlignment = Enum.TextXAlignment.Left
 	configoption.ZIndex = 0
 	configoption.MouseButton1Up:Connect(function()
-		op1value = true
-        if togglec == false then
-            togglec = true
+		if togglec == false then
+			togglec = true
 			-------------------------------
-			
+
 			_G.PrintHiddenStatusLog = true
-			
+
 			-------------------------------
-            configoption.TextColor3 = Color3.fromRGB(15, 252, 3)
-        else
-            togglec = false
+			configoption.TextColor3 = Color3.fromRGB(15, 252, 3)
+		else
+			togglec = false
 			-------------------------------
-			
+
 			_G.PrintHiddenStatusLog = false
-			
+
 			-------------------------------
-            configoption.TextColor3 = Color3.fromRGB(255, 64, 64)
-        end
-    end)
+			configoption.TextColor3 = Color3.fromRGB(255, 64, 64)
+		end
+	end)
 	--configoption.Visible = false
 
 	local UserInputService = game:GetService("UserInputService")
@@ -1074,31 +1169,70 @@ addButton("Hi-Lite V2", function()
 end)
 
 addButton("Refresh Hi-Lite V2", function()
-game.CoreGui.hi_litez:Destroy()
-wait(.35)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V2"))()
-print("Refreshed")
+	game.CoreGui.hi_litez:Destroy()
+	wait(.35)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V2"))()
+	print("Refreshed")
 end)
 
 addButton("Destroy Hi-Lite V2", function()
 	game.CoreGui.hi_litez:Destroy()
 end)
 
-
 local body2 = temp:CreateBody("body2")
+
+_G.SelectedEsp = "N/A"
+
+addButton("Set V2", function()
+	_G.SelectedEsp = "V2"
+end)
+addButton("Set V2.5", function()
+	_G.SelectedEsp = "V2.5"
+end)
+addButton("Set V3", function()
+	_G.ConsoleMsg("V3 Doesnt Support Loops Yet", _G.clb_fatal)
+end)
+
+addButtonAndInputSection2("Refresh Time Here (Seconds)", "Start V2 Loop", function()
+	local TheBoxValue2 = _G.globalBOXINPUT2
+
+	local function loopp2()
+	
+	if _G.SelectedEsp == "V2" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V2"))()
+	end
+	
+	if _G.SelectedEsp == "V2.5" then
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-WASTELANDTYCOON_EDITION'))()
+	end
+	
+	
+		wait(TheBoxValue2)
+		game.CoreGui.hi_litez:Destroy()
+	end
+
+	while true do
+		loopp2()
+		wait(.05)
+	end
+
+end)
+
+
+local body3 = temp:CreateBody("body3")
 addButton("Unnamed ESP", function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))()
 end)
 
 
-local body3 = temp:CreateBody("body3")
+local body4 = temp:CreateBody("body4")
 
 addLongButton("Hi-Lite V3 Beta", function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-BETA'))()
 
-_G.ConsoleMsg("HL V3 IS PERMANENT AND CANNOT BE DISABLED YET", _G.clb_warning)
-_G.ConsoleMsg("DO NOT EXECUTE MORE THAN ONCE", _G.clb_warning)
-_G.ConsoleMsg("HI-LITE V3 BETA LOADED", _G.clb_external1)
+	_G.ConsoleMsg("HL V3 IS PERMANENT AND CANNOT BE DISABLED YET", _G.clb_warning)
+	_G.ConsoleMsg("DO NOT EXECUTE MORE THAN ONCE", _G.clb_warning)
+	_G.ConsoleMsg("HI-LITE V3 BETA LOADED", _G.clb_external1)
 end)
 
 addSpacer()
@@ -1107,19 +1241,13 @@ addSpacer()
 
 addButtonAndInputSection("Code Here, Check CNSL", "Execute Special ESP", function()
 	local TheBoxValue = _G.globalBOXINPUT
-  
-	if TheBoxValue == "2317712696" then
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-BETA-TWW'))()
-	end
+
 	if TheBoxValue == "tww" then
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-BETA-TWW'))()
 	end
 
-	if TheBoxValue == "11997674134" then
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-WASTELANDTYCOON_EDITION'))()
-	end
-	if TheBoxValue == "waste" then
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-WASTELANDTYCOON_EDITION'))()
+	if TheBoxValue == "V2.5" then
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-WASTELANDTYCOON_EDITION'))()	--originally meant for wasteland tycoon but is also a very good V2 alternative
 	end
 
 end)
@@ -1129,13 +1257,15 @@ addButton("Destroy Old Hi-Lite Folder", function()
 end)
 
 
+_G.ConsoleMsg("LIST OF GAMES THAT HAVE A CUSTOM ESP BELOW", _G.clb_warning)
+_G.ConsoleMsg("+ CODES TO EXECUTE THEM", _G.clb_warning)
 
-_G.ConsoleMsg("2317712696", _G.clb_external1)
 _G.ConsoleMsg("tww", _G.clb_external1)
-_G.ConsoleMsg("^^^ The Wild West", _G.clb_external1)
-_G.ConsoleMsg("11997674134", _G.clb_external1)
-_G.ConsoleMsg("waste", _G.clb_external1)
-_G.ConsoleMsg("^^^ Wasteland Tycoon", _G.clb_external1)
+_G.ConsoleMsg("^^^ The Wild West - Hi-Lite V3", _G.clb_external1)
+
+_G.ConsoleMsg("V2.5", _G.clb_external1)
+_G.ConsoleMsg("^^^(Outdated, Should Work In Games That V3 Doesnt Support)", _G.clb_external1)
+
 
 
 
