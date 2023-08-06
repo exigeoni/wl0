@@ -1,1 +1,58 @@
+function espp()
+    
 
+local Outlines = true
+local OutlineColoring = Color3.fromRGB(118, 252, 109) 
+local OutlineFill = false
+local FillOpacity = 1
+local FillColoring = Color3.fromRGB(118, 252, 109) 
+
+--[[
+   OLD Code Taken From V2
+By Pwn#2203 a long time ago?
+--]]
+Instance.new("ScreenGui")
+
+local Folder = Instance.new("Folder", game:GetService("CoreGui"))
+Folder.Name = "hi_litez"
+
+AddOutline = function(Character)
+   local Highlight = Instance.new("Highlight", Folder)
+   
+   Highlight.OutlineColor = OutlineColoring
+   Highlight.Adornee = Character
+   
+   if OutlineFill == true then
+       Highlight.FillColor = FillColoring
+       Highlight.FillTransparency = FillOpacity
+   else
+       Highlight.FillTransparency = 1
+   end
+end
+
+
+for i, v in ipairs(game:GetService("Players"):GetPlayers()) do
+   if v ~= game:GetService("Players").LocalPlayer then
+       v.CharacterAdded:Connect(function(Character)
+           if Outlines == true then
+               AddOutline(Character)
+           end
+       end)
+       
+       if v.Character then
+           if Outlines == true then
+               AddOutline(v.Character)
+           end
+       end
+   end
+end
+
+game:GetService("Players").PlayerAdded:Connect(function(Player)
+   Player.CharacterAdded:Connect(function(Character)
+       if Outlines == true then
+           AddOutline(Character)
+       end
+   end)
+end)
+end
+espp()
