@@ -809,7 +809,7 @@ function AZX:CreateUI(text)
 	local configoption = Instance.new("TextButton")
 
 
-	local togglec = false
+	local togglec = true
 
 	configoption.Name = "configoption"
 	configoption.Parent = configbody
@@ -1193,7 +1193,7 @@ addButton("Set V3", function()
 	_G.ConsoleMsg("V3 Doesnt Support Loops Yet", _G.clb_fatal)
 end)
 
-addButtonAndInputSection2("Refresh Time Here (Seconds)", "Start V2 Loop", function()
+addButtonAndInputSection2("Refresh Time Here (Seconds)", "Start Loop", function()
 	local TheBoxValue2 = _G.globalBOXINPUT2
 
 	local function loopp2()
