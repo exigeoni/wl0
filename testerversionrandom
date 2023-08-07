@@ -808,7 +808,7 @@ function AZX:CreateUI(text)
 	local configoption = Instance.new("TextButton")
 
 
-	local togglec = false
+	local togglec = true
 
 	configoption.Name = "configoption"
 	configoption.Parent = configbody
@@ -1178,6 +1178,10 @@ addButton("Destroy Hi-Lite V2", function()
 	game.CoreGui.hi_litez:Destroy()
 end)
 
+addButton("Highlights Only", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite%20-highlights%20only'))()
+end)
+
 local body2 = temp:CreateBody("body2")
 
 _G.SelectedEsp = "N/A"
@@ -1191,8 +1195,11 @@ end)
 addButton("Set V3", function()
 	_G.ConsoleMsg("V3 Doesnt Support Loops Yet", _G.clb_fatal)
 end)
+addButton("Set Highlight Only", function()
+	_G.SelectedEsp = "HIGHLIGHTS"
+end)
 
-addButtonAndInputSection2("Refresh Time Here (Seconds)", "Start V2 Loop", function()
+addButtonAndInputSection2("Refresh Time Here (Seconds)", "Start Loop", function()
 	local TheBoxValue2 = _G.globalBOXINPUT2
 
 	local function loopp2()
@@ -1204,7 +1211,10 @@ addButtonAndInputSection2("Refresh Time Here (Seconds)", "Start V2 Loop", functi
 	if _G.SelectedEsp == "V2.5" then
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-WASTELANDTYCOON_EDITION'))()
 	end
-	
+
+	if _G.SelectedEsp == "HIGHLIGHTS" then
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite%20-highlights%20only'))()
+	end
 	
 		wait(TheBoxValue2)
 		game.CoreGui.hi_litez:Destroy()
