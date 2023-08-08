@@ -1,0 +1,318 @@
+
+----SCHEMATIC 0
+
+--Death Couch
+
+
+
+function SCHEMATIC_DEATH_COUCH()
+
+
+
+function aa0()
+
+
+
+local ohCFrame1 = CFrame.new(0, 1.5, 123, -4.97521192e-15, -1.3907092e-07, 1, 1, -3.57746401e-08, 0, 3.57746401e-08, 1, 1.3907092e-07)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa1()
+
+
+
+local ohCFrame1 = CFrame.new(0, 4.5, 123, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa2()
+
+
+
+local ohCFrame1 = CFrame.new(0, 1.5, 123, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa3()
+
+
+
+local ohCFrame1 = CFrame.new(0, 4.5, 120, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa4()
+
+
+
+local ohCFrame1 = CFrame.new(0, 4.5, 126, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa5()
+
+
+local ohCFrame1 = CFrame.new(0, 4.5, 129, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa6()
+
+
+
+local ohCFrame1 = CFrame.new(3, 4.5, 120, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa7()
+
+
+
+local ohCFrame1 = CFrame.new(3, 4.5, 123, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa8()
+
+
+
+local ohCFrame1 = CFrame.new(3, 4.5, 126, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa9()
+
+
+
+local ohCFrame1 = CFrame.new(3, 4.5, 129, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa10()
+
+
+
+local ohCFrame1 = CFrame.new(3, 7.5, 129, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa11()
+
+
+
+local ohCFrame1 = CFrame.new(3, 7.5, 126, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa12()
+
+
+
+local ohCFrame1 = CFrame.new(3, 7.5, 120, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Block
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa13()
+
+
+
+local ohCFrame1 = CFrame.new(0, 7.5, 123, -1, 0, -8.74227766e-08, 0, 1, 0, 8.74227766e-08, 0, -1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Couch
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa14()
+
+
+
+local ohCFrame1 = CFrame.new(6, 4.5, 129, 4.37113883e-08, 1, -8.74227766e-08, 1, -4.37113883e-08, 0, -3.82137093e-15, -8.74227766e-08, -1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Spikes
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa15()
+
+
+
+local ohCFrame1 = CFrame.new(6, 4.5, 126, 4.37113883e-08, 1, -8.74227766e-08, 1, -4.37113883e-08, 0, -3.82137093e-15, -8.74227766e-08, -1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Spikes
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa16()
+
+
+
+local ohCFrame1 = CFrame.new(6, 4.5, 123, 4.37113883e-08, 1, -8.74227766e-08, 1, -4.37113883e-08, 0, -3.82137093e-15, -8.74227766e-08, -1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Spikes
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa17()
+
+
+
+local ohCFrame1 = CFrame.new(6, 4.5, 120, 4.37113883e-08, 1, -8.74227766e-08, 1, -4.37113883e-08, 0, -3.82137093e-15, -8.74227766e-08, -1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Spikes
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa18()
+
+
+
+local ohCFrame1 = CFrame.new(6, 7.5, 120, 4.37113883e-08, 1, -8.74227766e-08, 1, -4.37113883e-08, 0, -3.82137093e-15, -8.74227766e-08, -1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Spikes
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa19()
+
+
+
+local ohCFrame1 = CFrame.new(6, 7.5, 123, 4.37113883e-08, 1, -8.74227766e-08, 1, -4.37113883e-08, 0, -3.82137093e-15, -8.74227766e-08, -1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Spikes
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa20()
+
+
+
+local ohCFrame1 = CFrame.new(6, 7.5, 126, 4.37113883e-08, 1, -8.74227766e-08, 1, -4.37113883e-08, 0, -3.82137093e-15, -8.74227766e-08, -1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Spikes
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+
+function aa21()
+
+
+
+local ohCFrame1 = CFrame.new(6, 7.5, 129, 4.37113883e-08, 1, -8.74227766e-08, 1, -4.37113883e-08, 0, -3.82137093e-15, -8.74227766e-08, -1)
+local ohInstance2 = game:GetService("ReplicatedStorage").Blocks.Spikes
+local ohInstance3 = workspace.Blocks.Block
+
+game:GetService("ReplicatedStorage").Remotes.BuildEvent:InvokeServer(ohCFrame1, ohInstance2)
+
+end
+aa0()
+wait(.5)
+aa1()
+wait(.1)
+aa2()
+wait(.1)
+aa3()
+wait(.1)
+aa4()
+wait(.1)
+aa5()
+wait(.1)
+aa6()
+wait(.1)
+aa7()
+wait(.1)
+aa8()
+wait(.1)
+aa9()
+wait(.1)
+aa10()
+wait(.1)
+aa11()
+wait(.1)
+aa12()
+wait(.1)
+aa13()
+wait(.1)
+aa14()
+wait(.1)
+aa15()
+wait(.1)
+aa16()
+wait(.1)
+aa17()
+wait(.1)
+aa18()
+wait(.1)
+aa19()
+wait(.1)
+aa20()
+wait(.1)
+aa21()
+wait(.1)
+end
+
+SCHEMATIC_DEATH_COUCH()
