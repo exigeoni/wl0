@@ -2,11 +2,12 @@
 --[[
    Created By Pwn#2203
 
-   Thx Repr Module For Help With Inventory ESP
+   Ty Repr Module For Help With Inventory ESP
 
-   V3 ALPHA EXPERIMENTAL
+   V3 BETA EXPERIMENTAL
 
    Now Using Drawing Library Instead Of Ingame GUIs
+    (except for the highlights)
 
 --]]
 	Instance.new("ScreenGui")
@@ -57,7 +58,21 @@ local Highlight = Instance.new("Highlight", Folder)
     Line.ZIndex = 647
     Line.Font = 3
     Line.Center = true
+    
 
+		local playerhealth = hum.Health
+		
+		local function onhealthchang(health)
+			local chang = math.abs(playerhealth - health)
+			playerhealth = health
+			local roundedhealth = string.format("%.2f", health)
+			playerhealth = roundedhealth
+		end
+		
+		hum.HealthChanged:Connect(onhealthchang)
+    
+    
+    
     local conect0
     local conect0sequel
     local conect0sequel2
@@ -105,7 +120,7 @@ local Highlight = Instance.new("Highlight", Folder)
         if hrponscreen  then
             Line.Position = Vector2.new(hrpp.X, hrpp.Y + -40)
             --Line.Position = Vector2.new(hrpp.X + -30, hrpp.Y + -80)
-            Line.Text = play.Name
+            Line.Text = play.Name.." - "..playerhealth
             Line.Visible = true
         else
             Line.Visible = false
@@ -436,7 +451,7 @@ print(repr(myTable)) --> {hello = "world", isCool = true, score = 5}
 
 
 
---modified inventory sysstem thing because
+
 local function pse2(play, char)
     local hrp = char:WaitForChild("HumanoidRootPart")
     local hum = char:WaitForChild("Humanoid")
@@ -534,6 +549,10 @@ local function pse2(play, char)
             Line.Position = Vector2.new(hrpp.X, hrpp.Y + -80)
             --Line.Position = Vector2.new(hrpp.X + -30, hrpp.Y + -80)
 
+
+
+		local selectedplayer = char.Name
+		
 local pathh = char
 
 local weaponNames = {}
@@ -548,9 +567,7 @@ end
 
 		    Line.Text = table.concat(weaponNames, ", ")
 
-
-
-
+		    
             Line.Color = play.TeamColor.Color
             --Line.Text = play.Name
             Line.Visible = true
@@ -577,3 +594,174 @@ players.PlayerAdded:Connect(playeradded2)
 
 
 
+
+--[[
+local function pse3(play, char)
+    local hrp = char:WaitForChild("HumanoidRootPart")
+    local hum = char:WaitForChild("Humanoid")
+    local hrppos = hrp.Position
+    --print(hrppos)
+
+
+
+    local Line = Drawing.new("Text")
+    --Line.Text = "Test"
+    Line.Visible = false
+    Line.Position = hrppos
+    --Line.Position = Vector2.new(500, 500)
+    --Line.To = Vector2.new(200, 200)
+    Line.Color = Color3.fromRGB(67, 224, 97)
+    Line.OutlineColor = Color3.fromRGB(1, 1, 1)
+    Line.Thickness = 2
+
+   if _G.visiblitystatus == "true" then
+    Line.Transparency = 0
+else
+    Line.Transparency = 1
+end
+    Line.ZIndex = 647
+    Line.Font = 3
+    Line.Center = true
+
+
+
+    local conect0
+    local conect0sequel
+    local conect0sequel2
+
+    local function bye()
+        Line.Visible = false
+        Line:Remove()
+
+        if conect0 then
+            conect0:Disconnect()
+            conect0 = nil
+        end
+
+        if conect0sequel then
+            conect0sequel:Disconnect()
+            conect0sequel = nil
+        end
+
+        if conect0sequel2 then
+            conect0sequel2:Disconnect()
+            conect0sequel2 = nil
+        end
+
+    end
+
+    conect0sequel = char.AncestryChanged:Connect(function(_,parent)
+        if not parent then
+            bye()
+        end
+    end)
+
+    local hst_dead = Enum.HumanoidStateType.Dead
+
+    conect0sequel2 = hum.HealthChanged:Connect(function(healthv)
+        if (healthv<=0) or (hum:GetState() == hst_dead) then
+            bye()
+        end
+    end)
+
+
+    conect0 = sr.RenderStepped:Connect(function()
+            local hrpp,hrponscreen = cc:WorldToViewportPoint(hrp.Position)
+
+        if hrponscreen  then
+            Line.Position = Vector2.new(hrpp.X, hrpp.Y + -60)
+            --Line.Position = Vector2.new(hrpp.X + -30, hrpp.Y + -80)
+            Line.Visible = true
+        else
+            Line.Visible = false
+        end
+
+    end)
+
+
+
+end
+local function playeradded3(play)
+    if play.Character then
+        pse3(play, play.Character)
+    end
+    play.CharacterAdded:Connect(function(char)
+        pse3(play, char)
+    end)
+end
+for i,v in next, players:GetPlayers() do
+    if v ~= localplayer then
+        playeradded3(v)
+    end
+end
+
+players.PlayerAdded:Connect(playeradded3)
+]]
+
+
+	--print("Item And Health Viewer Made By Pwn#2203")
+--[[
+	for i, v in ipairs(game:GetService("Players"):GetPlayers()) do
+		if v ~= game:GetService("Players").LocalPlayer then
+			v.CharacterAdded:Connect(function(Character)
+				if Outlines == true then
+					AddOutline(Character)
+				end
+				if NameTags == true then
+					AddNameTag(Character)
+					AddNameTag2(Character)
+                    			AddNameTag3(Character)
+				end
+			end)
+
+			if v.Character then
+				if Outlines == true then
+					AddOutline(v.Character)
+				end
+				if NameTags == true then
+					AddNameTag(v.Character)
+					AddNameTag2(v.Character)
+                   			AddNameTag3(v.Character)
+				end
+			end
+		end
+	end
+
+	game:GetService("Players").PlayerAdded:Connect(function(Player)
+		Player.CharacterAdded:Connect(function(Character)
+			if Outlines == true then
+				AddOutline(Character)
+			end
+			if NameTags == true then
+				AddNameTag(Character)
+				AddNameTag2(Character)
+       		    AddNameTag3(Character)
+			end
+		end)
+	end)
+end
+]]
+
+
+
+--[[
+local gameid = game.PlaceId
+
+if(gameid == 11997674134) then
+	print("HLV3 - Wasteland Tycoon Detected, Switching To Wasteland Tycoon Edition")
+	local Folder2 = Instance.new("Folder", game:GetService("CoreGui"))
+	Folder2.Name = "hi_litez"
+	game.CoreGui.hi_litez:Destroy()
+	wait(1)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-WASTELANDTYCOON_EDITION"))()
+elseif(gameid == 2317712696) then
+	print("HLV3 - The Wild West Detected, Switching To The Wild West Edition")
+	local Folder3 = Instance.new("Folder", game:GetService("CoreGui"))
+	Folder3.Name = "hi_litez"
+	game.CoreGui.hi_litez:Destroy()
+	wait(1)
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/exigeoni/wl0/main/Hi-Lite_V3-A-TWW_EDITION'))()
+else
+print("HLV3 - Game ID Not Officially Recognized, ESP May Not Work If Game Has Custom Inventory Or Character Locations.")
+end
+]]
