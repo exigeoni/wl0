@@ -2,11 +2,12 @@
 --[[
    Created By Pwn#2203
 
-   Thx Repr Module For Help With Inventory ESP
+   Ty Repr Module For Help With Inventory ESP
 
-   V3 ALPHA EXPERIMENTAL
+   V3 BETA EXPERIMENTAL
 
    Now Using Drawing Library Instead Of Ingame GUIs
+    (except for the highlights)
 
 --]]
 	Instance.new("ScreenGui")
@@ -57,7 +58,21 @@ local Highlight = Instance.new("Highlight", Folder)
     Line.ZIndex = 647
     Line.Font = 3
     Line.Center = true
+    
 
+		local playerhealth = hum.Health
+		
+		local function onhealthchang(health)
+			local chang = math.abs(playerhealth - health)
+			playerhealth = health
+			local roundedhealth = string.format("%.2f", health)
+			playerhealth = roundedhealth
+		end
+		
+		hum.HealthChanged:Connect(onhealthchang)
+    
+    
+    
     local conect0
     local conect0sequel
     local conect0sequel2
@@ -105,7 +120,7 @@ local Highlight = Instance.new("Highlight", Folder)
         if hrponscreen  then
             Line.Position = Vector2.new(hrpp.X, hrpp.Y + -40)
             --Line.Position = Vector2.new(hrpp.X + -30, hrpp.Y + -80)
-            Line.Text = play.Name
+            Line.Text = play.Name.." - "..playerhealth
             Line.Visible = true
         else
             Line.Visible = false
@@ -516,8 +531,17 @@ local function pse2(play, char)
 
 		local playeritemz = plyrzbackpack:GetChildren()
 		local plyritemTable = {playeritemz}
+        
+        local holdeditem
 
-		    Line.Text = repr(plyritemTable)
+        if char:FindFirstChildOfClass("Tool") then
+            holdeditem = char:FindFirstChildOfClass("Tool")
+            Line.Text = repr(plyritemTable).." | Held: "..holdeditem.Name
+        else
+            Line.Text = repr(plyritemTable)
+        end
+
+		    
             Line.Color = play.TeamColor.Color
             --Line.Text = play.Name
             Line.Visible = true
