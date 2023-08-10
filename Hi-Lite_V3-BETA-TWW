@@ -485,6 +485,21 @@ local function pse2(play, char)
 	 "LoadoutItem/RevolvingShotgun",
 	 "LoadoutItem/MuleOccultDoubleBarrel",
 	 "LoadoutItem/Dragoon"
+	 "LoadoutItem/Knife"
+	 "LoadoutItem/Lasso"
+	 "LoadoutItem/HammerlessRevolver"
+	 "LoadoutItem/KukriKnifeVariant6"
+	 "LoadoutItem/KukriKnifeVariant5"
+	 "LoadoutItem/KukriKnifeVariant4"
+         "LoadoutItem/KukriKnifeVariant3"
+	 "LoadoutItem/KukriKnifeVariant2"
+	 "LoadoutItem/KukriKnifeVariant1"
+	 "LoadoutItem/SpitfireRevolvingSniper"
+	 "LoadoutItem/Lemat"
+	 "LoadoutItem/SawedOffShotgunOccult"
+	 "LoadoutItem/KrisDagger"
+	 "LoadoutItem/HartfordRifle"
+
 	}
 
     local Line = Drawing.new("Text")
