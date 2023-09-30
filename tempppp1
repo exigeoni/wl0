@@ -1,2 +1,4 @@
-warn("temporarily disabled for maintenance")
-warn("btw sory bro")
+warn("erm this is old")
+while task.wait() do
+		game:GetService("ReplicatedStorage").Remotes.MineEvent:FireServer()
+end
